@@ -23,5 +23,6 @@ fourseven:scss
 seba:minifiers-autoprefixer
 kadira:flow-router
 u2622:persistent-session
+fortawesome:fontawesome
 #emdagon:c3js
 #hyperborea:datamaps
