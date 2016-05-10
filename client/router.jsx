@@ -3,6 +3,6 @@ import {mount} from 'react-mounter';
 
 FlowRouter.route('/', {
     action: function(params, queryParams) {
-        mount(Foo, {name: 'Arunoda'});
+        mount(Layout, {content: null});
     }
 });
