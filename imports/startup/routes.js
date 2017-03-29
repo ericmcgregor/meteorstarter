@@ -1,8 +1,12 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
+import Container from '/imports/ui/Container'
+
 FlowRouter.route('/', {
     action: function(params, queryParams) {
-        mount(Layout, {content: null});
+
+        mount(Container, {params, queryParams});
+
     }
 });
