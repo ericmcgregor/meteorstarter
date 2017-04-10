@@ -6,13 +6,19 @@
   },
   "dependencies": {
     "babel-runtime": "^6.20.0",
-    "meteor-node-stubs": "~0.2.4",
     "bootstrap": "^4.0.0-alpha.2",
     "gridlex": "^2.2.4",
+    "meteor-node-stubs": "~0.2.4",
     "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
     "react-addons-pure-render-mixin": "^15.0.1",
+    "react-addons-transition-group": "^15.4.2",
     "react-dom": "^15.0.1",
     "react-mounter": "^1.2.0",
-    "tether": "^1.4.0"
+    "react-table": "^5.5.0",
+    "reactstrap": "^4.5.0",
+    "tether": "^1.4.0",
+    "uniforms": "^1.16.0",
+    "uniforms-bootstrap4": "^1.16.0"
   }
 }

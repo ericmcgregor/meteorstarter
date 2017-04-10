@@ -28,3 +28,8 @@ fortawesome:fontawesome
 http
 jquery
 momentjs:moment
+reactive-dict
+aldeed:collection2-core
+matb33:collection-hooks
+keiths:octicons
+chriswessels:glyphicons-halflings

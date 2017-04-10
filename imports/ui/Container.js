@@ -4,8 +4,11 @@ import { createContainer } from 'meteor/react-meteor-data';
 import Data from '/imports/api/Data'
 import Page from './Page'
 
+const Store = new ReactiveDict();
+Store.set('find', {})
+window.Store = Store
 const PageConstructor = (params) => {
-  const subscription = Meteor.subscribe('data');
+  const subscription = Meteor.subscribe('data', {});
 
   let loading = true;
 
@@ -13,10 +16,17 @@ const PageConstructor = (params) => {
     loading=false;
   }
 
+
   return {
     loading:loading,
     params,
-    Data:Data.find().fetch(),
+    Collection:Data,
+    Data:Data.find({
+      title:new RegExp(Store.get('search')),
+      ...Store.get('find')
+    }).fetch(),
+    model:Store.get('model'),
+    Store
   }
 
 }
