@@ -35,14 +35,16 @@ const DefaultTableActions = class DefaultTableActions extends React.Component {
         <Col xs="2">
           <Input type="select" name="select" id="exampleSelect" onChange={this.find.bind(this)}>
           <option value={""}>all types</option>
-          {this.props.Collection.schema.getDefinition('type').allowedValues.map((item, i)=>{
-            return <option key={i} value={item}>{item}</option>
-          })}
+
         </Input>
         </Col>
       </Row>
     )
   }
 }
+
+// {this.props.Collection.simpleSchema.getDefinition('type').allowedValues.map((item, i)=>{
+//   return <option key={i} value={item}>{item}</option>
+// })}
 
 export default DefaultTableActions;

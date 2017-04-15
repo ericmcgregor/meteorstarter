@@ -7,6 +7,7 @@
   "dependencies": {
     "babel-runtime": "^6.20.0",
     "bootstrap": "^4.0.0-alpha.2",
+    "generate-schema": "^2.5.0",
     "gridlex": "^2.2.4",
     "meteor-node-stubs": "~0.2.4",
     "react": "^15.4.2",

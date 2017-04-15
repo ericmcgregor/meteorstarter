@@ -8,6 +8,19 @@ Container, Row, Col} from 'reactstrap';
 import DefaultFormComponent from './DefaultFormComponent'
 import DefaultTableActions from './DefaultTableActions';
 import ReactTable from 'react-table'
+import { ReactTableDefaults } from 'react-table'
+
+Object.assign(ReactTableDefaults, {
+  showPagination:false,
+  pageSize:1,
+  getTheadThProps:()=>{
+    return {
+      style:{
+        textAlign:"left"
+      }
+    }
+  }
+});
 
 const DefaultTableComponent = class DefaultTableComponent extends React.Component {
   remove(collection, _id){
@@ -18,7 +31,7 @@ const DefaultTableComponent = class DefaultTableComponent extends React.Componen
   }
   columns(Collection){
     var columns = Collection.schema.objectKeys().slice(0);
-    columns.splice(columns.indexOf('created'), 1)
+    // columns.splice(columns.indexOf('created'), 1)
 
     columns = columns.map((key)=>{
       let result = {header:key, accessor:key}
@@ -51,10 +64,44 @@ const DefaultTableComponent = class DefaultTableComponent extends React.Componen
 
         <ReactTable
             data={this.props.Data}
-            columns={this.columns(this.props.Collection)}
-            defaultPageSize={0}
+            columns={[
+              {
+                accessor:"picture.medium",
+                width:70,
+                render:({value, rowValues, row, index, viewIndex})=>{
+                  console.log(value)
+                  return (
+                    <img src={value} className="avatar" style={{borderRadius:"50px", width:"45px", height:"45px"}}/>
+                  )
+                }
+              },
+              {
+                id:"fullName",
+                header:"name",
+                accessor:(d)=>d.name.first +" "+ d.name.last
+              },
+              {
+                id:"username",
+                header:"username",
+                accessor:"login.username"
+              },
+              {
+                header:"cell",
+                accessor:"cell"
+              },
+              {
+                header:"options",
+                render:(d)=>{
+                  return (
+                    <div className="text-center">
+                      <i className="fa fa-trash" onClick={this.remove.bind(this, this.props.Collection, d.row._id)}></i>
+                      <i className="fa fa-pencil" onClick={this.edit.bind(this, this.props.Store, d.row)}></i>
+                    </div>
+                  )
+                }
+              }
+            ]}
             pageSize={this.props.Data.length}
-            showPagination={false}
           />
 
 
@@ -65,7 +112,7 @@ const DefaultTableComponent = class DefaultTableComponent extends React.Componen
 }
 
 export default DefaultTableComponent;
-
+// this.columns(this.props.Collection)
 
 
 

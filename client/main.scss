@@ -3,3 +3,42 @@
 
 @import '{}/node_modules/gridlex/src/gridlex-vars.scss';
 @import '{}/node_modules/gridlex/src/gridlex.scss';
+
+
+div[class^="container"] {
+  padding:0;
+}
+
+html,
+body,
+#react-root,
+#container-window,
+#container-body,
+#container-sidebar {
+  height:100%;
+  flex-direction:column;
+}
+#container-window {
+  overflow:hidden;
+}
+#container-body {
+  >div {
+    height:100%;
+  }
+}
+#container-content {
+  overflow-y:auto;
+}
+
+.SideNav {
+  border-right:1px solid $list-group-border-color;
+  position:relative;
+  ul.list-group {
+    .list-group-item {
+      border-radius:0px!important;
+      border-right:none;
+    }
+  }
+  >div {
+  }
+}
