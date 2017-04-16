@@ -3,10 +3,12 @@ import {mount} from 'react-mounter';
 
 import Container from '/imports/ui/Container'
 
-FlowRouter.route('/', {
-    action: function(params, queryParams) {
+mount(Container);
 
-        mount(Container, {params, queryParams});
-
-    }
-});
+// FlowRouter.route('/', {
+//     action: function(params, queryParams) {
+//
+//         mount(Container, {params, queryParams});
+//
+//     }
+// });

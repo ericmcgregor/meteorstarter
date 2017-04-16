@@ -1,8 +1,16 @@
 import React from 'react';
 import {Meteor} from 'meteor/meteor';
 import {
-  ListGroup, ListGroupItem, Badge
+  ListGroup, ListGroupItem, Badge,
+  Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem
 } from 'reactstrap';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink
+} from 'react-router-dom'
 
 const SideNavBar = class SideNavBar extends React.Component {
   constructor(props){
@@ -14,18 +22,26 @@ const SideNavBar = class SideNavBar extends React.Component {
   render() {
     return (
       <div>
+
+        <Navbar color="faded" light toggleable>
+            <NavbarToggler right />
+            <NavbarBrand tag={Link} to="/">Starter Template</NavbarBrand>
+        </Navbar>
+
         <ListGroup>
           <ListGroupItem
             action
-            tag="a"
-            href="#"
+            tag={NavLink}
+            to={'/basic'}
+            activeClassName="active"
             className="justify-content-between">
-            Basic Table <Badge pill>14</Badge>
+            Basic Table
           </ListGroupItem>
           <ListGroupItem
             action
-            tag="a"
-            href="#"
+            tag={NavLink}
+            to={'/pivot'}
+            activeClassName="active"
             className="justify-content-between">
             Pivot Table <Badge pill>2</Badge>
           </ListGroupItem>

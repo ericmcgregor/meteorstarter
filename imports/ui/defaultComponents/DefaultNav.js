@@ -20,7 +20,7 @@ const DefaultNav = class DefaultNav extends React.Component {
     return (
       <Navbar color="faded" light toggleable>
           <NavbarToggler right onClick={this.toggle} />
-          <NavbarBrand href="/">Starter Template</NavbarBrand>
+          <NavbarBrand href="/"></NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>

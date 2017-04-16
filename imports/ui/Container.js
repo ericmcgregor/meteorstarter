@@ -21,10 +21,7 @@ const PageConstructor = (params) => {
     loading:loading,
     params,
     Collection:Data,
-    Data:Data.find({
-      // name:new RegExp(Store.get('search')),
-      // ...Store.get('find')
-    }).fetch(),
+    Data:Data.find({}).fetch(),
     model:Store.get('model'),
     tableOptions:Store.get('tableOptions'),
     Store
