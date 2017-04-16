@@ -20,14 +20,14 @@ const SideNavBar = class SideNavBar extends React.Component {
             tag="a"
             href="#"
             className="justify-content-between">
-            Cras justo odio <Badge pill>14</Badge>
+            Basic Table <Badge pill>14</Badge>
           </ListGroupItem>
           <ListGroupItem
             action
             tag="a"
             href="#"
             className="justify-content-between">
-            Dapibus ac facilisis in <Badge pill>2</Badge>
+            Pivot Table <Badge pill>2</Badge>
           </ListGroupItem>
           <ListGroupItem
             action

@@ -28,6 +28,25 @@ body,
 }
 #container-content {
   overflow-y:auto;
+  position:relative;
+}
+
+.options-column {
+  flex:0,0,auto!important;
+}
+.options-container {
+  // border:1px solid black;
+  // display:flex;
+  // flex-direction:row;
+  height:100%;
+}
+
+.offCanvas {
+  position:absolute;
+  top:0;
+  right:0;
+  background:gray;
+  height:100%;
 }
 
 .SideNav {

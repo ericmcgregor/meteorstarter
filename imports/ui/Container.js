@@ -26,6 +26,7 @@ const PageConstructor = (params) => {
       // ...Store.get('find')
     }).fetch(),
     model:Store.get('model'),
+    tableOptions:Store.get('tableOptions'),
     Store
   }
 

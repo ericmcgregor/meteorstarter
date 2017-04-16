@@ -1,7 +1,9 @@
 import React from 'react';
 import {Meteor} from 'meteor/meteor';
-import DefaultFormComponent from './DefaultFormComponent'
-import DefaultTableComponent from './DefaultTableComponent'
+import DefaultFormComponent from '/imports/ui/defaultComponents/DefaultFormComponent'
+import DefaultTableComponent from '/imports/ui/defaultComponents/DefaultTableComponent'
+import PivotTableComponent from '/imports/ui/defaultComponents/PivotTable/PivotTableComponent'
+import DefaultTableActions from '/imports/ui/defaultComponents/DefaultTableActions'
 import SideNavBar from '/imports/ui/components/SideNavBar';
 
 import { Container, Row, Col,
@@ -9,12 +11,7 @@ import { Container, Row, Col,
   Card, CardImg, CardText, CardBlock,
     CardTitle, CardSubtitle, CardHeader } from 'reactstrap';
 
-const DefaultComponent = class DefaultComponent extends React.Component {
-  add(Collection) {
-    let doc = {}
-    Collection.schema.clean(doc)
-    Meteor.call('getData')
-  }
+const DefaultLayout = class DefaultLayout extends React.Component {
   render() {
     return (
       <Container id="container-body" fluid={true}>
@@ -27,11 +24,16 @@ const DefaultComponent = class DefaultComponent extends React.Component {
 
           <Col id="container-content">
             <CardBlock>
-              <Button color="primary" onClick={this.add.bind(this, this.props.Collection)}>add</Button>
+              <DefaultTableActions {...this.props}/>
+
               <DefaultTableComponent {...this.props} />
             </CardBlock>
 
             <hr></hr>
+
+            <CardBlock>
+              <PivotTableComponent {...this.props} />
+            </CardBlock>
 
               <CardBlock>
 
@@ -57,10 +59,9 @@ const DefaultComponent = class DefaultComponent extends React.Component {
 
 }
 
-DefaultComponent.defaultProps = {
+DefaultLayout.defaultProps = {
 
 }
-//
 
 
-export {DefaultComponent};
+export default DefaultLayout;

@@ -1,9 +1,11 @@
 import React from 'react';
 import {Meteor} from 'meteor/meteor';
-import {DefaultComponent} from '/imports/ui/defaultComponents/DefaultComponent'
+import DefaultLayout from '/imports/ui/Layouts/DefaultLayout';
 import DefaultNav from '/imports/ui/defaultComponents/DefaultNav';
 
 import { Container, Row, Col } from 'reactstrap';
+
+
 
 const Page = class Page extends React.Component {
   render() {
@@ -11,7 +13,7 @@ const Page = class Page extends React.Component {
     return (
       <div id="container-window">
         <DefaultNav />
-        <DefaultComponent {...this.props}/>
+        <DefaultLayout {...this.props}/>
       </div>
     )
   }

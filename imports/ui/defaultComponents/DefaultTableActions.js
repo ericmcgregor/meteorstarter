@@ -1,44 +1,58 @@
 import React from 'react';
 import {Meteor} from 'meteor/meteor';
-import { Button, Popover, PopoverTitle, PopoverContent,
-Modal, ModalHeader, ModalBody, ModalFooter,
-Form, FormGroup, Label, Input, FormText,
-Container, Row, Col} from 'reactstrap';
+import { Button, ButtonGroup, Container, Row, Col} from 'reactstrap';
 
 const DefaultTableActions = class DefaultTableActions extends React.Component {
   constructor(props) {
     super(props);
-    this.update = this.update.bind(this)
-    this.find = this.find.bind(this)
+    this.toggleFilters = this.toggleFilters.bind(this)
+    this.togglePagination = this.togglePagination.bind(this)
+    this.Store = this.props.Store;
   }
-  update(e){
-    this.props.Store.set("search", e.target.value)
+  add() {
+    Meteor.call('getData')
   }
-  find(e){
-    let result = {type:e.target.value};
-    if(!e.target.value) result = {};
-    this.props.Store.set("find", result)
+  toggleFilters(){
+    let tableOptions = this.Store.get('tableOptions');
+    if(!tableOptions) {
+      tableOptions = {
+        showFilters:false
+      }
+    }
+    tableOptions.showFilters = !tableOptions.showFilters;
+    this.Store.set('tableOptions', tableOptions);
+  }
+  togglePagination(){
+    let tableOptions = this.Store.get('tableOptions');
+    if(!tableOptions) {
+      tableOptions = {
+        showPagination:false
+      }
+    }
+    tableOptions.showPagination = !tableOptions.showPagination;
+    this.Store.set('tableOptions', tableOptions);
   }
   render() {
     return (
-      <Row noGutters={true}>
-        <Col xs="4">
-          <Input
-            type="text"
-            name="find"
-            id="exampleEmail"
-            placeholder="search by title"
-            onChange={this.update.bind(this)}
-            />
-        </Col>
-        <Col></Col>
-        <Col xs="2">
-          <Input type="select" name="select" id="exampleSelect" onChange={this.find.bind(this)}>
-          <option value={""}>all types</option>
+      <Container fluid={true}>
+        <Row className="justify-content-end" noGutters={true}>
+          <Col xs="auto" className="mr-auto">
+            {this.props.title ? this.props.title : "Table Title"}
+          </Col>
+          <Col xs="auto">
+            <Button className="mr-2" size="sm" onClick={this.add}>Add Data</Button>
 
-        </Input>
-        </Col>
-      </Row>
+            <ButtonGroup size="sm">
+              <Button>
+                <i className="fa fa-window-minimize" onClick={this.togglePagination}></i>
+              </Button>
+              <Button>
+                <i className="fa fa-filter" onClick={this.toggleFilters}></i>
+              </Button>
+            </ButtonGroup>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import {Meteor} from 'meteor/meteor';
 import ReactTable from 'react-table'
 import { ReactTableDefaults } from 'react-table'
-import DefaultTableRowActions from './DefaultTableRowActions'
 
 Object.assign(ReactTableDefaults, {
   showPagination:false,
@@ -16,7 +15,7 @@ Object.assign(ReactTableDefaults, {
   }
 });
 
-const DefaultTableComponent = class DefaultTableComponent extends React.Component {
+const PivotTableComponent = class PivotTableComponent extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -29,14 +28,9 @@ const DefaultTableComponent = class DefaultTableComponent extends React.Componen
           data={this.props.Data}
           columns={[
             {
-              accessor:"picture.medium",
-              width:70,
-              hideFilter:true,
-              render:({value, rowValues, row, index, viewIndex})=>{
-                return (
-                  <img src={value} className="avatar" style={{borderRadius:"50px", width:"45px", height:"45px"}}/>
-                )
-              }
+              header:"gender",
+              accessor:"gender",
+              width:150
             },
             {
               id:"fullName",
@@ -48,17 +42,9 @@ const DefaultTableComponent = class DefaultTableComponent extends React.Componen
               header:"username",
               accessor:"login.username"
             },
-            {
-              header:"cell",
-              accessor:"cell"
-            },
-            {
-              header:"options",
-              width:100,
-              hideFilter:true,
-              render:(d) => <DefaultTableRowActions d={d} {...this.props}/>
-            }
+
           ]}
+          pivotBy={['gender']}
           pageSize={this.props.Data.length}
           {...this.props.tableOptions}
         />
@@ -66,4 +52,4 @@ const DefaultTableComponent = class DefaultTableComponent extends React.Componen
   }
 }
 
-export default DefaultTableComponent;
+export default PivotTableComponent;
