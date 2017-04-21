@@ -3,30 +3,34 @@ import {Meteor} from 'meteor/meteor';
 import SideNavBar from '/imports/ui/components/SideNavBar';
 
 import { Container, Row, Col } from 'reactstrap';
-
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 
 const DefaultLayout = class DefaultLayout extends React.Component {
   render() {
     return (
-      <Container id="container-body" fluid={true}>
+      <Router id="container-window">
+        <Container id="container-body" fluid={true}>
 
-        <Row noGutters={true}>
+          <Row noGutters={true}>
 
-          <Col id="container-sidebar" xs={2} className={"SideNav"}>
             <SideNavBar />
-          </Col>
 
-          <Col id="container-content">
-            {this.props.children}
-          </Col>
+            <Col id="container-content">
 
-          <Col xs={8} hidden className="offCanvas">
-            offcanvas
-          </Col>
+            </Col>
 
-        </Row>
+            <Col xs={8} hidden className="offCanvas">
+              offcanvas
+            </Col>
 
-      </Container>
+          </Row>
+
+        </Container>
+      </Router>
+
     )
   }
 

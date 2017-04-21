@@ -2,12 +2,12 @@ import React from 'react';
 import {Meteor} from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import Data from '/imports/api/Data'
-import Page from './Page'
 
 const Store = new ReactiveDict();
 Store.set('find', {})
 window.Store = Store
-const PageConstructor = (params) => {
+
+const DefaultPageConstructor = (params) => {
   const subscription = Meteor.subscribe('data', {});
 
   let loading = true;
@@ -15,7 +15,6 @@ const PageConstructor = (params) => {
   if(subscription.ready()){
     loading=false;
   }
-
 
   return {
     loading:loading,
@@ -29,6 +28,4 @@ const PageConstructor = (params) => {
 
 }
 
-const Container = createContainer (PageConstructor, Page)
-
-export default Container;
+export {DefaultPageConstructor};
