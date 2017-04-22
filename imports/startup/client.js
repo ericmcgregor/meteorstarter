@@ -1,4 +1,4 @@
-import './routes'
+import './App'
 import Tether from 'Tether';
 
 import Data from '/imports/api/Data'

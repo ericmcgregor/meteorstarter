@@ -22,15 +22,27 @@ body,
   overflow:hidden;
 }
 #container-body {
-  >div {
+  display:flex;
+  >header {
+  }
+  >main {
+    display:flex;
+    flex-direction:column;
+    overflow-y:auto;
+    position:relative;
     height:100%;
   }
+
 }
 #container-content {
-  overflow-y:auto;
-  position:relative;
 }
-
+nav.navbar {
+  border-bottom:1px solid #d2d2d2;
+}
+nav.navbar.secondary {
+    padding-bottom: 0;
+    padding-top: 0;
+}
 .options-column {
   flex:0,0,auto!important;
 }

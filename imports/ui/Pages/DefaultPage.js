@@ -5,14 +5,18 @@ import DefaultFormComponent from '/imports/ui/defaultComponents/DefaultFormCompo
 import DefaultTableComponent from '/imports/ui/defaultComponents/DefaultTableComponent'
 import PivotTableComponent from '/imports/ui/defaultComponents/PivotTable/PivotTableComponent'
 import DefaultTableActions from '/imports/ui/defaultComponents/DefaultTableActions'
-import { Container, Row, Col, CardBlock, Card, CardHeader, Button } from 'reactstrap';
+import {
+  Container, Row, Col, CardBlock, Card, CardHeader, Button,
+  Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem,
+} from 'reactstrap';
 import { DefaultPageConstructor } from '/imports/ui/Containers/DefaultContainer'
 import SideNavBar from '/imports/ui/components/SideNavBar';
 
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  NavLink
 } from 'react-router-dom'
 
 const DefaultPageComponent = class DefaultPageComponent extends React.Component {
@@ -20,7 +24,7 @@ const DefaultPageComponent = class DefaultPageComponent extends React.Component 
     super();
     this.state = {
       SideNavBar:false,
-      OffCanvas:false
+      OffCanvas:false,
     }
     this.toggle = this.toggle.bind(this)
   }
@@ -35,9 +39,9 @@ const DefaultPageComponent = class DefaultPageComponent extends React.Component 
     return (
       <Row noGutters={true}>
 
-        {this.state.SideNavBar ? <SideNavBar size={4} {...props} /> : null}
+        {this.state.SideNavBar ? <SideNavBar size={2} {...props} /> : null}
 
-        <Col id="container-content">
+        <Col >
           <CardBlock>
             <Button onClick={this.toggle.bind(this,'SideNavBar')}>SideNavBar</Button>
             <Button onClick={this.toggle.bind(this,'OffCanvas')}>Offcanvas</Button>
