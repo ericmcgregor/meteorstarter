@@ -12,29 +12,27 @@ import {
 } from 'react-router-dom'
 
 
-const SecondaryNav = (props) => (
-  <Navbar className="secondary" color="faded" light toggleable>
-      <Nav className="" navbar>
-        <NavItem>
-          <NavLink
-            to={'/defaults/basic'}
-            activeClassName="active"
-            className="nav-link"
-            >
-            Basic
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            to={'/defaults/pivot'}
-            activeClassName="active"
-            className="nav-link"
-            >
-            Pivot
-          </NavLink>
-        </NavItem>
-      </Nav>
-  </Navbar>
-)
+const SecondaryNav = (props) => {
+  if(!props.routes) return null;
+  return(
+    <Navbar className="secondary" color="faded" light toggleable>
+        <Nav className="" navbar>
+
+          {props.routes.map((route, i)=>(
+            <NavItem key={i}>
+              <NavLink
+                to={route.path}
+                activeClassName="active"
+                className="nav-link"
+                >
+                {route.title}
+              </NavLink>
+            </NavItem>
+          ))}
+
+        </Nav>
+    </Navbar>
+  )
+}
 
 export default SecondaryNav;

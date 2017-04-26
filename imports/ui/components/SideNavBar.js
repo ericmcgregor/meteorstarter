@@ -20,9 +20,9 @@ const SideNavBar = class SideNavBar extends React.Component {
   }
   render() {
     return (
-      <Col id="container-sidebar" xs={this.props.size} className={"SideNav"}>
+      <Col id="container-sidebar" className={"SideNav"}>
 
-        <Navbar color="faded" light toggleable>
+        <Navbar light toggleable>
             <NavbarToggler right />
             <NavbarBrand tag={Link} to="/">Starter Template</NavbarBrand>
         </Navbar>

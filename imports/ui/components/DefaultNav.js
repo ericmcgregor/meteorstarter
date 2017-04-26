@@ -10,6 +10,8 @@ import {
   Link,
   NavLink
 } from 'react-router-dom'
+import SecondaryNav from '/imports/ui/components/SecondaryNav'
+import Routes from '/imports/startup/routes'
 
 const DefaultNav = class DefaultNav extends React.Component {
   constructor(props) {
@@ -26,7 +28,10 @@ const DefaultNav = class DefaultNav extends React.Component {
     });
   }
   render() {
+    const props = this.props;
     return (
+      <header>
+
       <Navbar color="faded" light toggleable>
           <NavbarToggler right onClick={this.toggle.bind(this,'isOpen')} />
 
@@ -36,50 +41,50 @@ const DefaultNav = class DefaultNav extends React.Component {
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem header>Primary Navigation</DropdownItem>
-                <NavLink
-                  className="dropdown-item"
-                  activeClassName="active"
-                  to="/defaults/basic">Defaults
-                </NavLink>
-                <DropdownItem hidden divider />
+                {Routes.map((route, i)=>(
                   <NavLink
+                    key={i}
                     className="dropdown-item"
                     activeClassName="active"
-                    to="/test">Another Section
+                    to={route.path}>{route.title}
                   </NavLink>
+                ))}
               </DropdownMenu>
             </ButtonDropdown>
           </div>
 
-          <NavbarBrand tag={Link} to="/">{this.props.title}</NavbarBrand>
+          <NavbarBrand tag={Link} to={props.route.match.url}>{props.route.title}</NavbarBrand>
 
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Route path={`/defaults`} render={(match)=>{
-                return (
-                  <Nav className="ml-auto" navbar>
-                    <NavItem>
+              <Nav className="ml-auto" navbar>
+                {this.props.route.routes.map((route, i)=>{
+                  if(!route.title) return null;
+                  return (
+                    <NavItem key={i}>
                       <NavLink
-                        to={'/defaults/basic'}
+                        to={route.path}
                         activeClassName="active"
-                        className="nav-link"
-                        >
-                        Basic
+                        className="nav-link">
+                        {route.title}
                       </NavLink>
                     </NavItem>
-                    <NavItem>
-                      <NavLink
-                        to={'/defaults/pivot'}
-                        activeClassName="active"
-                        className="nav-link"
-                        >
-                        Pivot
-                      </NavLink>
-                    </NavItem>
-                  </Nav>
-                )
-              }}/>
+                  )
+                })}
+              </Nav>
+
           </Collapse>
         </Navbar>
+
+        {props.route.routes.map((route, i)=>{
+          if(!route.routes) return null;
+          return (
+            <Route key={i} path={route.path} render={match => (
+                <SecondaryNav routes={route.routes} />
+              )} />
+          )
+        })}
+
+      </header>
     )
   }
 

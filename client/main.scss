@@ -31,11 +31,20 @@ body,
     overflow-y:auto;
     position:relative;
     height:100%;
+    >div.row {
+      height:100%;
+    }
   }
 
 }
 #container-content {
+  overflow-y:auto;
+  position:relative;
+  height:100%;
 }
+
+
+
 nav.navbar {
   border-bottom:1px solid #d2d2d2;
 }
@@ -62,6 +71,8 @@ nav.navbar.secondary {
 }
 
 .SideNav {
+  flex:0 1 auto;
+  width:320px;
   border-right:1px solid $list-group-border-color;
   position:relative;
   ul.list-group {

@@ -18,7 +18,7 @@ import {
   Switch
 } from 'react-router-dom'
 
-const DefaultPageComponent = class DefaultPageComponent extends React.Component {
+const SidebarLayoutComponent = class SidebarLayoutComponent extends React.Component {
   constructor(){
     super();
     this.state = {
@@ -94,51 +94,4 @@ const DefaultPageComponent = class DefaultPageComponent extends React.Component 
 }
 
 
-export default DefaultPage = createContainer (DefaultPageConstructor, DefaultPageComponent)
-
-
-
-
-
-
-
-                // <Route path={`${props.route.match.url}/tables`} render={(match)=>{
-                //       return (
-                //         <div>
-                //           <Route path={`${props.route.match.url}/tables/basic`} render={(match)=>{
-                //             return (
-                //               <div>
-                //                 <DefaultTableActions {...props}/>
-                //
-                //                 <DefaultTableComponent {...props} />
-                //                 <hr>
-                //                 </hr>
-                //
-                //                 <Card className="my-3">
-                //                   <CardHeader>
-                //                     Scheam editor
-                //                   </CardHeader>
-                //                   <CardBlock>
-                //                     <DefaultFormComponent {...props} />
-                //                   </CardBlock>
-                //                 </Card>
-                //
-                //               </div>
-                //             )
-                //           }}/>
-                //           <Route path={`${props.route.match.url}/tables/pivot`} render={(match)=>{
-                //                 return (
-                //                   <CardBlock>
-                //                     <DefaultTableActions {...props}/>
-                //
-                //                     <PivotTableComponent {...props} />
-                //
-                //
-                //                   </CardBlock>
-                //                 )
-                //           }}/>
-                //         </div>
-                //       )
-                //   }}>
-                //
-                // </Route>
+export default SidebarLayout = createContainer (DefaultPageConstructor, SidebarLayoutComponent)
