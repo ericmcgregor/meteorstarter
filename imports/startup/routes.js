@@ -1,69 +1,130 @@
 import React from 'react';
-import DefaultPage from '/imports/ui/Pages/DefaultPage';
+import DefaultLayout from '/imports/ui/Layouts/DefaultLayout';
+import SidebarLayout from '/imports/ui/Layouts/SidebarLayout';
 import DefaultTableComponent from '/imports/ui/defaultComponents/DefaultTableComponent'
 import PivotTableComponent from '/imports/ui/defaultComponents/PivotTable/PivotTableComponent'
+import TablesBasicPage from '/imports/ui/Pages/TablesBasicPage'
+import DefaultNav from '/imports/ui/components/DefaultNav'
 
 import {
   Redirect
 } from 'react-router-dom'
 
-const TablesRoute = [
+const SidebarNavRoute = [
   {
-    path: '/tables',
-    title:'Tables Tempalte',
-    component: DefaultPage,
+    path: '/sidebarnav',
+    title:'Sidebar Nav',
+    component: SidebarLayout,
     routes: [
-        { path: "/tables/basic",
+        { path: "/sidebarnav/basic",
           title:'Basic',
           exact:true,
-          component:DefaultTableComponent,
+          component:TablesBasicPage,
           routes:[
-            { path: "/tables/basic/examples",
+            { path: "/sidebarnav/basic/examples",
               title:'examples',
               component:()=>(<div>examples page</div>),
             },
-            { path: "/tables/basic/docs",
+            { path: "/sidebarnav/basic/docs",
               title:'docs',
               component:()=>(<div>docs page</div>),
             },
-            { path: "/tables/basic/:id",
+            { path: "/sidebarnav/basic/:id",
               component:()=>(<div>Example deep error page.  This route does not exist</div>)
             }
           ]
         },
-        { path: '/tables/pivot',
+        { path: '/sidebarnav/pivot',
           title:'Pivot',
           component:PivotTableComponent
         },
-        { path: '/tables/:id',
+        { path: '/sidebarnav/test',
+          title:'Test',
+          component:()=>(<div>test</div>)
+        },
+        { path: '/sidebarnav/:id',
           component:()=>(<div>Example error page.  This route does not exist</div>)
         },
-        { path: '/tables',
+        { path: '/sidebarnav',
           exact:true,
-          component:()=>(<div>table landing page</div>)
+          component:()=>(<Redirect to={'/sidebarnav/basic'} />)
+        },
+      ],
+  },
+]
+
+const DefaultNavRoute = [
+  {
+    path: '/defaultnav',
+    title:'Default Nav',
+    component: DefaultLayout,
+    nav:DefaultNav,
+    routes: [
+        { path: "/defaultnav/basic",
+          title:'Basic',
+          exact:true,
+          component:TablesBasicPage,
+          routes:[
+            { path: "/defaultnav/basic/examples",
+              title:'examples',
+              component:()=>(<div>examples page</div>),
+            },
+            { path: "/defaultnav/basic/docs",
+              title:'docs',
+              component:()=>(<div>docs page</div>),
+            },
+            { path: "/sidebarnav/basic/:id",
+              component:()=>(<div>Example deep error page.  This route does not exist</div>)
+            }
+          ]
+        },
+        { path: '/defaultnav/pivot',
+          title:'Pivot',
+          component:PivotTableComponent
+        },
+        { path: '/defaultnav/:id',
+          component:()=>(<div>Example error page.  This route does not exist</div>)
+        },
+        { path: '/defaultnav',
+          exact:true,
+          component:()=>(<Redirect to={'/defaultnav/basic'} />)
         },
       ],
   }
 ]
 
-const FormsRoute = [
+const DropdownNavRoute = [
   {
-    path: '/forms',
-    title:'Forms Tempalte',
-    component: DefaultPage,
+    path: '/dropdown',
+    title:'Dropdown Nav',
+    component: DefaultLayout,
     routes: [
-        { path: "/forms/standard",
+        { path: "/dropdown/standard",
           title:'Standard',
+          exact:true,
           component:DefaultTableComponent,
+          routes:[
+            { path: "/dropdown/standard/examples",
+              title:'examples',
+              component:()=>(<div>examples page</div>),
+            },
+            { path: "/dropdown/standard/docs",
+              title:'docs',
+              component:()=>(<div>docs page</div>),
+            },
+            { path: "/dropdown/standard/:id",
+              component:()=>(<div>Example deep error page.  This route does not exist</div>)
+            }
+          ]
         },
-        { path: '/forms/advanced',
+        { path: '/dropdown/advanced',
           title:'Advanced',
           component:PivotTableComponent
         },
-        { path: '/forms/:id',
+        { path: '/dropdown/:id',
           component:()=>(<div>Example error page.  This route does not exist</div>)
         },
-        { path: '/forms',
+        { path: '/dropdown',
           exact:true,
           component:()=>(<div>forms landing page</div>)
         },
@@ -72,8 +133,13 @@ const FormsRoute = [
 ]
 
 const routes = [
-  ...TablesRoute,
-  ...FormsRoute
+  ...SidebarNavRoute,
+  ...DropdownNavRoute,
+  ...DefaultNavRoute,
+  { path: '/',
+    exact:true,
+    component:SidebarLayout
+  },
 ]
 
 export default routes;

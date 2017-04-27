@@ -55,34 +55,43 @@ const DefaultNav = class DefaultNav extends React.Component {
 
           <NavbarBrand tag={Link} to={props.route.match.url}>{props.route.title}</NavbarBrand>
 
-          <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                {this.props.route.routes.map((route, i)=>{
-                  if(!route.title) return null;
-                  return (
-                    <NavItem key={i}>
-                      <NavLink
-                        to={route.path}
-                        activeClassName="active"
-                        className="nav-link">
-                        {route.title}
-                      </NavLink>
-                    </NavItem>
-                  )
-                })}
-              </Nav>
+          {(()=>{
+            if(!this.props.route.routes) return null;
+            return (
+              <Collapse isOpen={this.state.isOpen} navbar>
+                  <Nav className="ml-4" navbar>
+                    {this.props.route.routes.map((route, i)=>{
+                      if(!route.title) return null;
+                      return (
+                        <NavItem key={i}>
+                          <NavLink
+                            to={route.path}
+                            activeClassName="active"
+                            className="nav-link">
+                            {route.title}
+                          </NavLink>
+                        </NavItem>
+                      )
+                    })}
+                  </Nav>
+              </Collapse>
+            )
+          })()}
 
-          </Collapse>
         </Navbar>
 
-        {props.route.routes.map((route, i)=>{
-          if(!route.routes) return null;
-          return (
-            <Route key={i} path={route.path} render={match => (
-                <SecondaryNav routes={route.routes} />
-              )} />
-          )
-        })}
+        {(()=>{
+          if(!this.props.route.routes) return null;
+          return props.route.routes.map((route, i)=>{
+            if(!route.routes) return null;
+            return (
+              <Route key={i} path={route.path} render={match => (
+                  <SecondaryNav routes={route.routes} />
+                )} />
+            )
+          })
+        })()}
+
 
       </header>
     )

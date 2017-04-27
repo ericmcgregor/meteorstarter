@@ -2,9 +2,6 @@ import React from 'react';
 import {mount} from 'react-mounter';
 
 import { Container, Row, Col } from 'reactstrap';
-import DefaultNav from '/imports/ui/components/DefaultNav'
-import SecondaryNav from '/imports/ui/components/SecondaryNav'
-import DefaultPage from '/imports/ui/Pages/DefaultPage'
 
 import {
   BrowserRouter as Router,

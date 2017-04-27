@@ -41,6 +41,8 @@ body,
   overflow-y:auto;
   position:relative;
   height:100%;
+  display:flex;
+  flex-direction:column;
 }
 
 
@@ -70,17 +72,60 @@ nav.navbar.secondary {
   height:100%;
 }
 
+
+
+
 .SideNav {
   flex:0 1 auto;
-  width:320px;
+  width:240px;
   border-right:1px solid $list-group-border-color;
   position:relative;
-  ul.list-group {
-    .list-group-item {
-      border-radius:0px!important;
-      border-right:none;
-    }
+  overflow-y:auto;
+  background:#f1f1f1;
+  font-size:0.9rem;
+  .sidebar-header {
+    padding:9px $navbar-padding-x
   }
-  >div {
+  nav.navbar.full-nav {
+    padding:0;
+      >ul.navbar-nav {
+        >div {
+          >li.nav-item {
+            padding:$navbar-padding-y $navbar-padding-x;
+          }
+          >nav.navbar {
+            padding:0 $navbar-padding-x $navbar-padding-y $navbar-padding-x*2;
+          }
+        }
+      }
+    // border:1px solid black;
   }
+
 }
+
+
+
+
+
+
+// .list-group-item-action {
+//   width: 100%; // For `<button>`s (anchors become 100% by default though)
+//   color: $list-group-link-color;
+//   text-align: inherit; // For `<button>`s (anchors inherit)
+//
+//   .list-group-item-heading {
+//     color: $list-group-link-heading-color;
+//   }
+//
+//   // Hover state
+//   @include hover-focus {
+//     color: $list-group-link-hover-color;
+//     text-decoration: none;
+//     background-color: $list-group-hover-bg;
+//   }
+//
+//   &:active {
+//     color: $list-group-link-active-color;
+//     background-color: $list-group-link-active-bg;
+//   }
+// }
