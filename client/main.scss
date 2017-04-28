@@ -9,6 +9,14 @@ div[class^="container"] {
   padding:0;
 }
 
+.pointer {
+  cursor:pointer;
+  color:$gray-light;
+  &:hover {
+    color:darken($gray, 2);
+  }
+}
+
 html,
 body,
 #react-root,
@@ -84,7 +92,7 @@ nav.navbar.secondary {
   background:#f1f1f1;
   font-size:0.9rem;
   .sidebar-header {
-    padding:9px $navbar-padding-x
+    padding:9px 0;
   }
   nav.navbar.full-nav {
     padding:0;
