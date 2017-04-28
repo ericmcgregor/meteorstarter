@@ -5,22 +5,22 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "babel-runtime": "^6.20.0",
-    "bootstrap": "^4.0.0-alpha.2",
+    "babel-runtime": "^6.23.0",
+    "bootstrap": "^4.0.0-alpha.6",
     "generate-schema": "^2.5.0",
-    "gridlex": "^2.2.4",
-    "meteor-node-stubs": "~0.2.4",
-    "react": "^15.4.2",
-    "react-addons-css-transition-group": "^15.4.2",
-    "react-addons-pure-render-mixin": "^15.0.1",
-    "react-addons-transition-group": "^15.4.2",
-    "react-dom": "^15.0.1",
+    "gridlex": "^2.3.1",
+    "meteor-node-stubs": "^0.2.6",
+    "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-addons-pure-render-mixin": "^15.5.2",
+    "react-addons-transition-group": "^15.5.2",
+    "react-dom": "^15.5.4",
     "react-mounter": "^1.2.0",
     "react-router-dom": "^4.1.1",
-    "react-table": "^5.5.0",
+    "react-table": "^5.6.0",
     "reactstrap": "^4.5.0",
     "tether": "^1.4.0",
-    "uniforms": "^1.16.0",
-    "uniforms-bootstrap4": "^1.16.0"
+    "uniforms": "^1.17.2",
+    "uniforms-bootstrap4": "^1.17.2"
   }
 }

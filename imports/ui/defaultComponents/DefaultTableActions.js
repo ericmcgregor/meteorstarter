@@ -35,11 +35,11 @@ const DefaultTableActions = class DefaultTableActions extends React.Component {
   render() {
     return (
       <Container fluid={true}>
-        <Row className="justify-content-end" noGutters={true}>
-          <Col xs="auto" className="mr-auto">
+        <Row className="" noGutters={true}>
+          <Col className="">
             {this.props.title ? this.props.title : "Table Title"}
           </Col>
-          <Col xs="auto">
+          <Col xs="auto" className="ml-auto">
             <Button className="mr-2" size="sm" onClick={this.add}>Add Data</Button>
 
             <ButtonGroup size="sm">

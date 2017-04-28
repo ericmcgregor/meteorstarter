@@ -25,8 +25,6 @@ const DefaultTableComponent = class DefaultTableComponent extends React.Componen
   }
   render() {
     const props = this.props
-    console.log(props)
-
     return (
       <ReactTable
           data={this.props.Data}

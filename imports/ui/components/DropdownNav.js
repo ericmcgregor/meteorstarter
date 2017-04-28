@@ -76,7 +76,7 @@ const DropdownNav = class DropdownNav extends React.Component {
             {(()=>{
               if(!this.props.route.routes) return null;
               return (
-                <Collapse isOpen={this.state.isOpen} navbar>
+                <Collapse isOpen={this.state.isOpen} navbar className="p-0">
                 <Nav className="ml-4" navbar>
                   {this.props.route.routes.map((route, i)=>{
                     if(!route.title) return null;
