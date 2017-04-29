@@ -1,58 +1,22 @@
 import React from 'react';
 import {Meteor} from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import DefaultFormComponent from '/imports/ui/defaultComponents/DefaultFormComponent'
-import DefaultTableComponent from '/imports/ui/defaultComponents/DefaultTableComponent'
-import PivotTableComponent from '/imports/ui/defaultComponents/PivotTable/PivotTableComponent'
-import DefaultTableActions from '/imports/ui/defaultComponents/DefaultTableActions'
 import {
-  Container, Row, Col, CardBlock, Card, CardHeader, Button,
+  Container, Row, Col, CardBlock, Button,
   Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem,
 } from 'reactstrap';
 import { DefaultPageConstructor } from '/imports/ui/Containers/DefaultContainer'
-import SideNavBar from '/imports/ui/components/SideNavBar';
-import DefaultNav from '/imports/ui/components/DefaultNav'
-import DropdownNav from '/imports/ui/components/DropdownNav'
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from 'react-router-dom'
+import DropdownNav from '/imports/ui/components/Nav/DropdownNav'
+import {Route, Switch} from 'react-router-dom'
+import LayoutController from './LayoutController'
 
-const DefaultLayoutComponent = class DefaultLayoutComponent extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      SideNavBar:false,
-      OffCanvas:false,
-    }
-    this.toggle = this.toggle.bind(this)
-  }
-  toggle(key) {
-    if(!this.state[key]) {
-      return this.setState({
-        [key]:true
-      })
-    }
-    this.setState({
-      [key]: !this.state[key]
-    });
-  }
-  flattenRoutes(routes) {
-    let _routes = [];
-    if(!routes) return _routes;
-    routes.forEach((route, i)=>{
-      _routes.push(route)
-      if(route.routes){
-        _routes.push(...route.routes)
-      }
-    })
-    return _routes;
-  }
+import OffCanvas from '/imports/ui/components/OffCanvas';
+import SidePanel from '/imports/ui/components/SidePanel';
+
+const DefaultLayoutComponent = class DefaultLayoutComponent extends LayoutController {
   render() {
     const props = this.props;
     if(props.loading) return null;
-    console.log(props)
     return (
       <Container id="container-body" fluid={true}>
 
@@ -68,7 +32,7 @@ const DefaultLayoutComponent = class DefaultLayoutComponent extends React.Compon
         <main>
           <Row noGutters={true}>
 
-            {this.state.SideNavBar ? <SideNavBar size={2} toggle={this.toggle} open={this.state.SideNavBar} {...props} /> : null}
+            {this.state.SideNavBar ? <SidePanel size={2} toggle={this.toggle.bind(this, 'SideNavBar')} {...props} /> : null}
 
             <Col id="container-content">
               <CardBlock>
@@ -92,8 +56,11 @@ const DefaultLayoutComponent = class DefaultLayoutComponent extends React.Compon
               </CardBlock>
             </Col>
 
-            {this.state.OffCanvas ? <Col xs={3} className="offCanvas">offcanvas</Col> : null}
-
+            <OffCanvas {...props}
+              isOpen={this.state.OffCanvas}
+              close={this.toggle.bind(this,'OffCanvas')}>
+              <div>Offcanvas content</div>
+            </OffCanvas>
 
           </Row>
         </main>

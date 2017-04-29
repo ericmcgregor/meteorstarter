@@ -10,7 +10,7 @@ import {
   Link,
   NavLink
 } from 'react-router-dom'
-import SecondaryNav from '/imports/ui/components/SecondaryNav'
+import SecondaryNav from '/imports/ui/components/Nav/SecondaryNav'
 import Routes from '/imports/startup/routes'
 
 const DefaultNav = class DefaultNav extends React.Component {

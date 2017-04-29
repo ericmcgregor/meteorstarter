@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const NavHoverClass = class NavHoverClass extends React.Component {
+const NavHoverController = class NavHoverController extends React.Component {
   constructor(){
     super();
     this.state={
@@ -37,4 +37,4 @@ const NavHoverClass = class NavHoverClass extends React.Component {
   }
 }
 
-export default NavHoverClass;
+export default NavHoverController;

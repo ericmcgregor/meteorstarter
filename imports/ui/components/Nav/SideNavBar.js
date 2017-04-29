@@ -12,7 +12,7 @@ import {
   NavLink
 } from 'react-router-dom'
 import Routes from '/imports/startup/routes'
-import NavHoverClass from "./NavHoverClass";
+import NavHoverController from "./NavHoverController";
 
 const SideNavBar = class SideNavBar extends React.Component {
   constructor(props){
@@ -36,12 +36,11 @@ const SideNavBar = class SideNavBar extends React.Component {
         }
     }
     return (
-      <Col id="container-sidebar" className={"SideNav"} style={styles}>
+      <Col xs={2} className={"Panel SideNav"} style={styles}>
         {(()=>{
           if(this.state.SideNavBar) return (
             <div>
             <Navbar className="sidebar-header p-0" light>
-              <Container fluid className="m-0 p-0">
                 <Row noGutters>
                   <Col className="pb-0 p-2">
                     <NavbarBrand tag={Link} to="/">Starter Template</NavbarBrand>
@@ -51,7 +50,6 @@ const SideNavBar = class SideNavBar extends React.Component {
                     <i className="fa fa-caret-left text-sm-muted"></i>
                   </div>
                 </Row>
-              </Container>
             </Navbar>
 
             <GlobalNavWithPopover {...props} />
@@ -74,7 +72,7 @@ SideNavBar.defaultProps = {
 }
 
 
-const GlobalNavWithPopover = class GlobalNavWithPopover extends NavHoverClass {
+const GlobalNavWithPopover = class GlobalNavWithPopover extends NavHoverController {
   constructor(){
     super()
   }

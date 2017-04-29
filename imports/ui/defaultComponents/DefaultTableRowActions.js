@@ -7,15 +7,16 @@ const DefaultTableRowActions = class DefaultTableRowActions extends React.Compon
   remove(collection, _id){
     collection.remove(_id)
   }
-  edit(Store, model){
+  edit(Store, model, props){
     Store.set('model', model);
+    props.layout.toggle('OffCanvas')
   }
   render() {
     return (
       <div className="text-center options-container d-flex align-items-stretch ">
         <ButtonGroup>
           <Button>
-            <i className="fa fa-pencil" onClick={this.edit.bind(this, this.props.Store, this.props.d.row)}></i>
+            <i className="fa fa-pencil" onClick={this.edit.bind(this, this.props.Store, this.props.d.row, this.props)}></i>
           </Button>
           <Button>
             <i className="fa fa-trash" onClick={this.remove.bind(this, this.props.Collection, this.props.d.row._id)}></i>

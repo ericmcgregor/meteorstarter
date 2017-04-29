@@ -21,8 +21,7 @@ html,
 body,
 #react-root,
 #container-window,
-#container-body,
-#container-sidebar {
+#container-body {
   height:100%;
   flex-direction:column;
 }
@@ -72,28 +71,60 @@ nav.navbar.secondary {
   height:100%;
 }
 
-.offCanvas {
-  position:absolute;
-  top:0;
-  right:0;
-  background:gray;
-  height:100%;
-}
 
 
 
-
-.SideNav {
+[class^="Panel"] {
   flex:0 1 auto;
-  width:240px;
+  flex-direction:column;
+  height:100%;
   border-right:1px solid $list-group-border-color;
   position:relative;
   overflow-y:auto;
   background:#f1f1f1;
   font-size:0.9rem;
+  padding-bottom:0;
+  
+  &[class*="right"] {
+    border-right:0;
+    border-left:1px solid $list-group-border-color;
+  }
+
   .sidebar-header {
     padding:9px 0;
   }
+
+  &.SideNav {
+    width:240px;
+  }
+
+  &.offCanvas {
+    position:absolute!important;
+    top:0;
+    right:0;
+    display:flex;
+    flex-direction:column;
+    >header {}
+    >main {
+      height:100%;
+      overflow-y:scroll
+    }
+  }
+
+}
+
+
+.SideNav, .SidePanel, .offCanvas {
+  // flex:0 1 auto;
+  // width:240px;
+  // border-right:1px solid $list-group-border-color;
+  // position:relative;
+  // overflow-y:auto;
+  // background:#f1f1f1;
+  // font-size:0.9rem;
+  // .sidebar-header {
+  //   padding:9px 0;
+  // }
   nav.navbar.full-nav {
     padding:0;
       >ul.navbar-nav {

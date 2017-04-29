@@ -4,7 +4,7 @@ import SidebarLayout from '/imports/ui/Layouts/SidebarLayout';
 import DefaultTableComponent from '/imports/ui/defaultComponents/DefaultTableComponent'
 import PivotTableComponent from '/imports/ui/defaultComponents/PivotTable/PivotTableComponent'
 import TablesBasicPage from '/imports/ui/Pages/TablesBasicPage'
-import DefaultNav from '/imports/ui/components/DefaultNav'
+import DefaultNav from '/imports/ui/components/Nav/DefaultNav'
 
 import {
   Redirect

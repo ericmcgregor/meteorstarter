@@ -1,44 +1,19 @@
 import React from 'react';
 import {Meteor} from 'meteor/meteor';
-import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import { createContainer } from 'meteor/react-meteor-data';
 import { DefaultPageConstructor } from '/imports/ui/Containers/DefaultContainer'
-import SideNavBar from '/imports/ui/components/SideNavBar';
 import {
   Container, Row, Col, CardBlock, Card, CardHeader, Button,
   Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem,
 } from 'reactstrap';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
+import SideNavBar from '/imports/ui/components/Nav/SideNavBar';
+import OffCanvas from '/imports/ui/components/OffCanvas';
+import LayoutController from './LayoutController'
+import DefaultFormComponent from '/imports/ui/defaultComponents/DefaultFormComponent'
 
-const SidebarLayoutComponent = class SidebarLayoutComponent extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      SideNavBar:true,
-      OffCanvas:false,
-    }
-    this.toggle = this.toggle.bind(this)
-  }
-  toggle(key) {
-    if(!this.state[key]) {
-      return this.setState({
-        [key]:true
-      })
-    }
-    this.setState({
-      [key]: !this.state[key]
-    });
-  }
-  flattenRoutes(routes) {
-    let _routes = [];
-    if(!routes) return _routes;
-    routes.forEach((route, i)=>{
-      _routes.push(route)
-      if(route.routes){
-        _routes.push(...route.routes)
-      }
-    })
-    return _routes;
-  }
+
+const SidebarLayoutComponent = class SidebarLayoutComponent extends LayoutController {
   render() {
     const props = this.props;
     if(props.loading) return null;
@@ -54,7 +29,7 @@ const SidebarLayoutComponent = class SidebarLayoutComponent extends React.Compon
             <Col id="container-content">
 
               <CardBlock>
-                <div hidden>
+                <div >
                   <Button onClick={this.toggle.bind(this,'SideNavBar')}>SideNavBar</Button>
                   <Button onClick={this.toggle.bind(this,'OffCanvas')}>Offcanvas</Button>
                 </div>
@@ -64,7 +39,12 @@ const SidebarLayoutComponent = class SidebarLayoutComponent extends React.Compon
                     this.flattenRoutes(props.route.routes).map((route, i)=>(
                       <Route key={i} path={route.path} exact={route.exact} render={match=>(
                         <div>
-                          <route.component {...props} />
+                          <route.component
+                            {...props}
+                            layout={{
+                              toggle:this.toggle
+                            }}
+                            />
                         </div>
                         )}>
                       </Route>
@@ -75,8 +55,11 @@ const SidebarLayoutComponent = class SidebarLayoutComponent extends React.Compon
               </CardBlock>
             </Col>
 
-            {this.state.OffCanvas ? <Col xs={3} className="offCanvas">offcanvas</Col> : null}
-
+            <OffCanvas {...props}
+              isOpen={this.state.OffCanvas}
+              close={this.toggle.bind(this,'OffCanvas')}>
+              <CardBlock><DefaultFormComponent {...props} /></CardBlock>
+            </OffCanvas>
 
           </Row>
         </main>
@@ -84,6 +67,9 @@ const SidebarLayoutComponent = class SidebarLayoutComponent extends React.Compon
     )
   }
 }
-
+SidebarLayoutComponent.defaultProps = {
+  SideNavBar:true,
+  OffCanvas:false
+}
 
 export default SidebarLayout = createContainer (DefaultPageConstructor, SidebarLayoutComponent)
