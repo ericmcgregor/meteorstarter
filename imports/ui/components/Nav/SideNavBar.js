@@ -12,7 +12,8 @@ import {
   NavLink
 } from 'react-router-dom'
 import Routes from '/imports/startup/routes'
-import NavHoverController from "./NavHoverController";
+import NavHoverController from "./components/NavHoverController";
+import UserNavWithDropdown from './components/UserNavWithDropdown';
 
 const SideNavBar = class SideNavBar extends React.Component {
   constructor(props){
@@ -51,7 +52,13 @@ const SideNavBar = class SideNavBar extends React.Component {
                   </div>
                 </Row>
             </Navbar>
-
+            <Navbar className="full-nav" light>
+              <Nav vertical navbar>
+                <div>
+                  <UserNavWithDropdown {...props} right={false}/>
+                </div>
+              </Nav>
+            </Navbar>
             <GlobalNavWithPopover {...props} />
             </div>
           )

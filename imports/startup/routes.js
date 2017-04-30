@@ -1,7 +1,6 @@
 import React from 'react';
 import DefaultLayout from '/imports/ui/Layouts/DefaultLayout';
 import SidebarLayout from '/imports/ui/Layouts/SidebarLayout';
-import DefaultTableComponent from '/imports/ui/defaultComponents/DefaultTableComponent'
 import PivotTableComponent from '/imports/ui/defaultComponents/PivotTable/PivotTableComponent'
 import TablesBasicPage from '/imports/ui/Pages/TablesBasicPage'
 import DefaultNav from '/imports/ui/components/Nav/DefaultNav'
@@ -102,7 +101,7 @@ const DropdownNavRoute = [
         { path: "/dropdown/standard",
           title:'Standard',
           exact:true,
-          component:DefaultTableComponent,
+          component:TablesBasicPage,
           routes:[
             { path: "/dropdown/standard/examples",
               title:'examples',
@@ -131,6 +130,7 @@ const DropdownNavRoute = [
       ],
   }
 ]
+
 
 const routes = [
   ...SidebarNavRoute,

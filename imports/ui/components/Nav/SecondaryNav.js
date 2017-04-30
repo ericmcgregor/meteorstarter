@@ -17,7 +17,6 @@ const SecondaryNav = (props) => {
   return(
     <Navbar className="secondary" color="faded" light toggleable>
         <Nav className="" navbar>
-
           {props.routes.map((route, i)=>(
             <NavItem key={i}>
               <NavLink
@@ -29,7 +28,6 @@ const SecondaryNav = (props) => {
               </NavLink>
             </NavItem>
           ))}
-
         </Nav>
     </Navbar>
   )

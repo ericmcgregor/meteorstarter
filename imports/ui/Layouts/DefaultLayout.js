@@ -32,7 +32,7 @@ const DefaultLayoutComponent = class DefaultLayoutComponent extends LayoutContro
         <main>
           <Row noGutters={true}>
 
-            {this.state.SideNavBar ? <SidePanel size={2} toggle={this.toggle.bind(this, 'SideNavBar')} {...props} /> : null}
+            {this.state.SideNavBar ? <SidePanel size={3} toggle={this.toggle.bind(this, 'SideNavBar')} {...props} /> : null}
 
             <Col id="container-content">
               <CardBlock>

@@ -3,7 +3,7 @@ import {Meteor} from 'meteor/meteor';
 import DefaultTableComponent from '/imports/ui/defaultComponents/DefaultTableComponent'
 import DefaultTableActions from '/imports/ui/defaultComponents/DefaultTableActions'
 
-const TablesBasicLayout = (props) => (
+const TablesBasicPage = (props) => (
   <div>
 
     <DefaultTableActions title="Basic Table" {...props} />
@@ -11,4 +11,4 @@ const TablesBasicLayout = (props) => (
   </div>
 )
 
-export default TablesBasicLayout;
+export default TablesBasicPage;

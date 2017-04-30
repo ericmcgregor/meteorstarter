@@ -1,8 +1,9 @@
 import React from 'react';
 import {Meteor} from 'meteor/meteor';
 import {
-  Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem,NavDropdown,
-  Button, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem,Dropdown
+  Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem,UncontrolledNavDropdown,
+  Button, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem,Dropdown,
+  Popover, PopoverContent, Row, Col
  } from 'reactstrap';
 
 import {
@@ -12,6 +13,10 @@ import {
 } from 'react-router-dom'
 import SecondaryNav from '/imports/ui/components/Nav/SecondaryNav'
 import Routes from '/imports/startup/routes'
+import NavHoverController from "./components/NavHoverController";
+import GlobalNavIconWithPopover from './components/GlobalNavIconWithPopover';
+import GlobalNavWithDropdown from './components/GlobalNavWithDropdown';
+import UserNavWithDropdown from './components/UserNavWithDropdown';
 
 const DropdownNav = class DropdownNav extends React.Component {
   constructor(props) {
@@ -33,84 +38,21 @@ const DropdownNav = class DropdownNav extends React.Component {
       <header>
 
       <Navbar color="faded" light toggleable>
-          <NavbarToggler right onClick={this.toggle.bind(this,'isOpen')} />
 
-          <div hidden className="mr-2">
-            <ButtonDropdown size="sm" isOpen={this.state.dropdownOpen} toggle={this.toggle.bind(this,'dropdownOpen')}>
-              <DropdownToggle caret>
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem header>Primary Navigation</DropdownItem>
-                {Routes.map((route, i)=>(
-                  <NavLink
-                    key={i}
-                    className="dropdown-item"
-                    activeClassName="active"
-                    to={route.path}>{route.title}
-                  </NavLink>
-                ))}
-              </DropdownMenu>
-            </ButtonDropdown>
-          </div>
+        <NavbarBrand tag={"div"}>
+          <GlobalNavIconWithPopover style="grid" {...props} />
+        </NavbarBrand>
 
+        <NavbarBrand  tag={"div"}>
+          {props.route.title}
+        </NavbarBrand>
 
-          <NavbarBrand tag={"div"}>
-                  <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                    <DropdownToggle tag={"div"} caret>
-                      {props.route.title}
-                    </DropdownToggle>
-                    <DropdownMenu>
-                      {Routes.map((route, i)=>{
-                        if(!route.title) return null;
-                        return (
-                          <DropdownItem key={i} tag={Link} to={route.path}>{route.title}</DropdownItem>
-                        )
-                      })}
-                    </DropdownMenu>
-                  </Dropdown>
-          </NavbarBrand>
+        <GlobalNavWithDropdown {...props} />
 
+            <Nav className="ml-auto" navbar>
+              <UserNavWithDropdown {...props} />
 
-
-
-            {(()=>{
-              if(!this.props.route.routes) return null;
-              return (
-                <Collapse isOpen={this.state.isOpen} navbar className="p-0">
-                <Nav className="ml-4" navbar>
-                  {this.props.route.routes.map((route, i)=>{
-                    if(!route.title) return null;
-                    if(route.routes) return (
-                      <NavDropdown key={i} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                        <DropdownToggle nav caret>
-                          {route.title}
-                        </DropdownToggle>
-                        <DropdownMenu>
-                          {route.routes.map((route, i)=>{
-                            if(!route.title) return null
-                            return (
-                              <DropdownItem key={i} tag={Link} to={route.path}>{route.title}</DropdownItem>
-                            )
-                          })}
-                        </DropdownMenu>
-                      </NavDropdown>
-                    )
-                    return (
-                      <NavItem key={i}>
-                        <NavLink
-                          to={route.path}
-                          activeClassName="active"
-                          className="nav-link">
-                          {route.title}
-                        </NavLink>
-                      </NavItem>
-                    )
-                  })}
-                </Nav>
-                </Collapse>
-              )
-            })()}
-
+            </Nav>
 
         </Navbar>
 
@@ -126,6 +68,109 @@ DropdownNav.defaultProps = {
 }
 
 export default DropdownNav;
+
+
+
+
+
+//
+// const ProductNavWithPopover = class ProductNavWithPopover extends NavHoverController {
+//   constructor(){
+//     super()
+//   }
+//   render() {
+//     const props = this.props;
+//     const route = props.route;
+//     console.log(route)
+//     return (
+//       <NavbarBrand tag={"div"}>
+//           <div id="Popover" className="dropdown-toggle"
+//             onMouseEnter={this.enter.bind(this, route.path)}
+//             onMouseLeave={this.leave.bind(this, route.path)}>
+//             {props.route.title}
+//           </div>
+//
+//
+//
+//           <Popover
+//             placement={props.placement}
+//             isOpen={this.state[route.path]==true}
+//             target={"Popover"}
+//             toggle={this.toggle.bind(this,route.path,!this.state[route.path])}
+//             onMouseEnter={this.stayOpen.bind(this,route.path)}
+//             onMouseLeave={this.leave.bind(this, route.path)}
+//             >
+//             <PopoverContent className="" style={{width:props.width}}>
+//               <Nav vertical navbar>
+//
+//                 {Routes.map((route, i)=>{
+//                   if(!route.title) return null;
+//                   return (
+//                     <NavItem key={i}>
+//                       <NavLink
+//                         to={route.path}
+//                         activeClassName="active"
+//                         className="nav-link"
+//                         >
+//                         {route.title}
+//                       </NavLink>
+//                     </NavItem>
+//                   )
+//                 })}
+//               </Nav>
+//             </PopoverContent>
+//           </Popover>
+//
+//       </NavbarBrand>
+//
+//     )
+//   }
+// }
+// ProductNavWithPopover.defaultProps = {
+//   width:"180px",
+//   placement:"bottom left",
+//   title:"Default title"
+// }
+
+
+//
+// <NavbarToggler right onClick={this.toggle.bind(this,'isOpen')} />
+//
+// <div hidden className="mr-2">
+//   <ButtonDropdown size="sm" isOpen={this.state.dropdownOpen} toggle={this.toggle.bind(this,'dropdownOpen')}>
+//     <DropdownToggle caret>
+//     </DropdownToggle>
+//     <DropdownMenu>
+//       <DropdownItem header>Primary Navigation</DropdownItem>
+//       {Routes.map((route, i)=>(
+//         <NavLink
+//           key={i}
+//           className="dropdown-item"
+//           activeClassName="active"
+//           to={route.path}>{route.title}
+//         </NavLink>
+//       ))}
+//     </DropdownMenu>
+//   </ButtonDropdown>
+// </div>
+
+// <NavbarBrand hidden tag={"div"}>
+//         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+//           <DropdownToggle tag={"div"} caret>
+//             {props.route.title}
+//           </DropdownToggle>
+//           <DropdownMenu>
+//             {Routes.map((route, i)=>{
+//               if(!route.title) return null;
+//               return (
+//                 <DropdownItem key={i} tag={Link} to={route.path}>{route.title}</DropdownItem>
+//               )
+//             })}
+//           </DropdownMenu>
+//         </Dropdown>
+// </NavbarBrand>
+//
+
 
 
 
