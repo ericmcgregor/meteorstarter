@@ -91,7 +91,7 @@ const GlobalNavWithPopover = class GlobalNavWithPopover extends NavHoverControll
     return (
       <Navbar className="full-nav" light>
           <Nav vertical navbar>
-            {Routes.map((route, i)=>{
+            {props.appRoutes.map((route, i)=>{
               if(!route.title) return null;
               return (
                 <div key={i}>

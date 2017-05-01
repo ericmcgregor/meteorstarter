@@ -22,9 +22,9 @@ const DefaultLayoutComponent = class DefaultLayoutComponent extends LayoutContro
 
         {(()=>{
           if(this.props.route.nav) {
-            return <this.props.route.nav  route={props.route} />
+            return <this.props.route.nav  route={props.route} appRoutes={props.appRoutes}/>
           } else {
-            return <DropdownNav route={props.route} />
+            return <DropdownNav route={props.route} appRoutes={props.appRoutes}/>
           }
         })()}
 

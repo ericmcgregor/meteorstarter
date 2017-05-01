@@ -24,7 +24,7 @@ const SidebarLayoutComponent = class SidebarLayoutComponent extends LayoutContro
 
           <Row noGutters={true}>
 
-            {this.state.SideNavBar ? <SideNavBar size={1} toggle={this.toggle} open={this.state.SideNavBar} {...props} /> : null}
+            {this.state.SideNavBar ? <SideNavBar size={1} toggle={this.toggle} open={this.state.SideNavBar} {...props} appRoutes={props.appRoutes}/> : null}
 
             <Col id="container-content">
 

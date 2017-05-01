@@ -69,7 +69,7 @@ GlobalNavIconWithPopover.defaultProps = {
 }
 const NavListGrid = (props) => (
   <Row noGutters>
-    {Routes.map((route, i)=>{
+    {props.appRoutes.map((route, i)=>{
       if(!route.title) return null;
       return (
         <Col xs={4} className="py-1 text-center" key={i}>
@@ -84,7 +84,7 @@ const NavListGrid = (props) => (
         </Col>
       )
     })}
-    {Routes.map((route, i)=>{
+    {props.appRoutes.map((route, i)=>{
       if(!route.title) return null;
       return (
         <Col xs={4} className="py-1 text-center" key={i}>
@@ -103,7 +103,7 @@ const NavListGrid = (props) => (
 )
 const NavListList = (props) => (
   <Nav vertical navbar>
-    {Routes.map((route, i)=>{
+    {props.appRoutes.map((route, i)=>{
       if(!route.title) return null;
       return (
         <NavItem key={i}>
