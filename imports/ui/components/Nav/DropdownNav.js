@@ -1,40 +1,15 @@
 import React from 'react';
 import {Meteor} from 'meteor/meteor';
 import {
-  Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem,UncontrolledNavDropdown,
-  Button, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem,Dropdown,
-  Popover, PopoverContent, Row, Col
+  Navbar, NavbarBrand, Nav,UncontrolledNavDropdown,
  } from 'reactstrap';
 
-import {
-  Route,
-  Link,
-  NavLink
-} from 'react-router-dom'
-import SecondaryNav from '/imports/ui/components/Nav/SecondaryNav'
-import Routes from '/imports/startup/routes'
 import NavHoverController from "./components/NavHoverController";
 import GlobalNavIconWithPopover from './components/GlobalNavIconWithPopover';
 import GlobalNavWithDropdown from './components/GlobalNavWithDropdown';
 import UserNavWithDropdown from './components/UserNavWithDropdown';
 
-const DropdownNav = class DropdownNav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false,
-      dropdownOpen:false,
-    };
-  }
-  toggle(key) {
-    this.setState({
-      [key]: !this.state[key]
-    });
-  }
-  render() {
-    const props = this.props;
-    return (
+const DropdownNav = (props) => (
       <header>
 
       <Navbar color="faded" light toggleable>
@@ -58,10 +33,8 @@ const DropdownNav = class DropdownNav extends React.Component {
 
 
       </header>
-    )
-  }
 
-}
+)
 
 DropdownNav.defaultProps = {
 

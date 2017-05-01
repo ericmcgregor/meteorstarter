@@ -41,10 +41,11 @@ const SideNavBar = class SideNavBar extends React.Component {
         {(()=>{
           if(this.state.SideNavBar) return (
             <div>
+
             <Navbar className="sidebar-header p-0" light>
                 <Row noGutters>
-                  <Col className="pb-0 p-2">
-                    <NavbarBrand tag={Link} to="/">Starter Template</NavbarBrand>
+                  <Col xs={"auto"} className="pb-0 p-2">
+                    <NavbarBrand tag={Link} to="/" className="m-0">Starter Template</NavbarBrand>
                   </Col>
                   <div onClick={this.toggle.bind(this, 'SideNavBar', !this.state.SideNavBar)}
                     className="pointer px-3 ml-auto d-flex align-items-center">
@@ -52,6 +53,7 @@ const SideNavBar = class SideNavBar extends React.Component {
                   </div>
                 </Row>
             </Navbar>
+
             <Navbar className="full-nav" light>
               <Nav vertical navbar>
                 <div>
@@ -59,8 +61,10 @@ const SideNavBar = class SideNavBar extends React.Component {
                 </div>
               </Nav>
             </Navbar>
+
             <GlobalNavWithPopover {...props} />
-            </div>
+
+          </div>
           )
           else return (
             <CardBlock onClick={this.toggle.bind(this, 'SideNavBar')} className="pointer px-0 d-flex align-items-center justify-content-center">
@@ -73,7 +77,6 @@ const SideNavBar = class SideNavBar extends React.Component {
     )
   }
 }
-// d-flex align-items-center justify-content-center pt-4
 SideNavBar.defaultProps = {
   size:2
 }
