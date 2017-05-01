@@ -8,7 +8,7 @@ import {
 import { DefaultPageConstructor } from '/imports/ui/Containers/DefaultContainer'
 import DropdownNav from '/imports/ui/components/Nav/DropdownNav'
 import {Route, Switch} from 'react-router-dom'
-import LayoutController from './LayoutController'
+import LayoutController from '/imports/ui/Layouts/LayoutController'
 
 import OffCanvas from '/imports/ui/components/OffCanvas';
 import SidePanel from '/imports/ui/components/SidePanel';

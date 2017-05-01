@@ -42,16 +42,12 @@ const SideNavBar = class SideNavBar extends React.Component {
           if(this.state.SideNavBar) return (
             <div>
 
-            <Navbar className="sidebar-header p-0" light>
-                <Row noGutters>
-                  <Col xs={"auto"} className="pb-0 p-2">
-                    <NavbarBrand tag={Link} to="/" className="m-0">Starter Template</NavbarBrand>
-                  </Col>
+            <Navbar className="sidebar-header flex-row pr-0" light>
+                  <NavbarBrand tag={Link} to="/" >Starter Template</NavbarBrand>
                   <div onClick={this.toggle.bind(this, 'SideNavBar', !this.state.SideNavBar)}
-                    className="pointer px-3 ml-auto d-flex align-items-center">
+                    className="pointer px-3 ml-auto align-self-center justify-content-center">
                     <i className="fa fa-caret-left text-sm-muted"></i>
                   </div>
-                </Row>
             </Navbar>
 
             <Navbar className="full-nav" light>

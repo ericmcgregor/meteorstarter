@@ -31,7 +31,15 @@ const GlobalNavWithDropdown = class GlobalNavWithDropdown extends React.Componen
       <Nav className="ml-4" navbar>
         {props.route.routes.map((route, i)=>{
           if(!route.title) return null;
-          if(route.routes) return (
+
+          let hasRoutes = false;
+          if(route.routes){
+            route.routes.forEach((item)=>{
+              if(item.title) hasRoutes = true;
+            })
+          }
+
+          if(route.routes && hasRoutes) return (
             <NavDropdown key={i} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
               <DropdownToggle nav caret>
                 {route.title}

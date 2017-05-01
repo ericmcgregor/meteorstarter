@@ -84,21 +84,6 @@ const NavListGrid = (props) => (
         </Col>
       )
     })}
-    {props.appRoutes.map((route, i)=>{
-      if(!route.title) return null;
-      return (
-        <Col xs={4} className="py-1 text-center" key={i}>
-          <NavLink
-            to={route.path}
-            activeClassName="active"
-            className="nav-link"
-            >
-            <div className="nav-icon rounded-circle mb-2"></div>
-            {route.title}
-          </NavLink>
-        </Col>
-      )
-    })}
   </Row>
 )
 const NavListList = (props) => (

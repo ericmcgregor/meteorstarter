@@ -9,7 +9,7 @@ import {
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import SideNavBar from '/imports/ui/components/Nav/SideNavBar';
 import OffCanvas from '/imports/ui/components/OffCanvas';
-import LayoutController from './LayoutController'
+import LayoutController from '/imports/ui/Layouts/LayoutController'
 import DefaultFormComponent from '/imports/ui/defaultComponents/DefaultFormComponent'
 
 

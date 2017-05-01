@@ -38,7 +38,7 @@ body,
     overflow-y:auto;
     position:relative;
     height:100%;
-    >div.row {
+    >div.row, div {
       height:100%;
     }
   }
@@ -60,6 +60,7 @@ nav.navbar {
 nav.navbar.secondary {
     padding-bottom: 0;
     padding-top: 0;
+    font-size:0.9rem;
 }
 .options-column {
   flex:0,0,auto!important;
@@ -100,7 +101,7 @@ nav.navbar.secondary {
   }
 
   .sidebar-header {
-    padding:9px 0;
+    // padding:9px 0;
   }
 
   &.SideNav {
@@ -152,8 +153,27 @@ nav.navbar.secondary {
 
 }
 
+.SidePanel {
+  background:#fff;
+  border:0;
+  padding:20px 0;
+  >div {
+    border:1px solid $list-group-border-color;
+    margin:0 20px;
+    overflow-y:auto;
+  }
+  &.col-4 {
+    width:380px;
+    min-width:380px;
+  }
+}
 
 
+
+.PageHeader {
+  border-bottom:1px solid $list-group-border-color;
+  // height:280px;
+}
 
 
 
