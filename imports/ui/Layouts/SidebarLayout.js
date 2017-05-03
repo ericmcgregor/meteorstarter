@@ -16,6 +16,7 @@ import DefaultFormComponent from '/imports/ui/defaultComponents/DefaultFormCompo
 const SidebarLayoutComponent = class SidebarLayoutComponent extends LayoutController {
   render() {
     const props = this.props;
+    console.log(props)
     if(props.loading) return null;
     return (
       <Container id="container-body" fluid={true}>
@@ -28,11 +29,6 @@ const SidebarLayoutComponent = class SidebarLayoutComponent extends LayoutContro
 
             <Col id="container-content">
 
-              <CardBlock>
-                <div >
-                  <Button onClick={this.toggle.bind(this,'SideNavBar')}>SideNavBar</Button>
-                  <Button onClick={this.toggle.bind(this,'OffCanvas')}>Offcanvas</Button>
-                </div>
 
                 <Switch>
                   {
@@ -52,7 +48,6 @@ const SidebarLayoutComponent = class SidebarLayoutComponent extends LayoutContro
                   }
                 </Switch>
 
-              </CardBlock>
             </Col>
 
             <OffCanvas {...props}

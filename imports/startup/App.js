@@ -10,11 +10,12 @@ import {
   Switch
 } from 'react-router-dom'
 
+//uncomment this line for instructions:
 // import appRoutes from './routes'
+
+// uncomment this line:
 import appRoutes from '/imports/projects/routes'
 
-// wrap <Route> and use this everywhere instead, then when
-// sub routes are added to any route it'll work
 const RouteWithSubRoutes = (route) => {
   return (
     <Route path={route.path} render={props => {
@@ -23,7 +24,6 @@ const RouteWithSubRoutes = (route) => {
   )
 }
 
-
 const App = () =>{
   return (
     <Router>
@@ -31,7 +31,7 @@ const App = () =>{
         {appRoutes.map((route, i) => (
           <Route key={i} path={route.path} render={(props)=>{
               return (
-                <RouteWithSubRoutes {...props} {...route} appRoutes={appRoutes} />
+                <RouteWithSubRoutes {...props} {...route} route={route} appRoutes={appRoutes} />
             )
             }}/>
         ))}
@@ -39,6 +39,9 @@ const App = () =>{
     </Router>
   )
 }
+
+mount(App);
+
 
 
 // const App = () =>{
@@ -70,4 +73,12 @@ const App = () =>{
 //   )
 // }
 
-mount(App);
+//
+// const RouteWithSubRoutes = (route) => {
+//   return (
+//     <Route path={route.path} render={props => {
+//       return (<route.component route={route} appRoutes={appRoutes}/>)
+//     }} />
+//   )
+// }
+//

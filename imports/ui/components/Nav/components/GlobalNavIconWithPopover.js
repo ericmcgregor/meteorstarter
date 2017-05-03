@@ -22,7 +22,6 @@ const GlobalNavIconWithPopover = class GlobalNavIconWithPopover extends NavHover
   render() {
     const props = this.props;
     const route = props.route;
-    console.log(route)
     return (
       <div>
           <div id="Popover"

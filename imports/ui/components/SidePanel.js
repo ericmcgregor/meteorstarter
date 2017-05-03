@@ -5,24 +5,33 @@ import {
   CardBlock
 } from 'reactstrap';
 
+const SidePanelHeader = (props) => (
+  <header>
+    <Navbar  className="flex-row align-items-center" light>
+      <NavbarBrand>{props.title ? props.title : "SidePanel"}</NavbarBrand>
+      <div onClick={props.close}
+        className="pointer ml-auto">
+        <i className="fa fa-times text-sm-muted"></i>
+      </div>
+    </Navbar>
+
+  </header>
+)
+
 const SidePanel = class SidePanel extends React.Component {
   render() {
+    const props = this.props;
     return (
-      <Col xs={this.props.size} className="Panel SidePanel">
+      <Col xs={this.props.size} className={"Panel SidePanel "+props.className}>
         <div>
-        <header>
-          <Navbar  className="flex-row align-items-center" light>
-            <NavbarBrand>SidePanel</NavbarBrand>
-            <div onClick={this.props.close}
-              className="pointer ml-auto">
-              <i className="fa fa-times text-sm-muted"></i>
-            </div>
-          </Navbar>
-
-        </header>
-        <main>
-            {this.props.children}
-        </main>
+          {(()=>{
+            if(props.header) {
+              return <SidePanelHeader {...props} />
+            }
+          })()}
+          <main>
+              {this.props.children}
+          </main>
         </div>
       </Col>
     )

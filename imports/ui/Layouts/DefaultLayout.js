@@ -50,9 +50,6 @@ const DefaultLayoutComponent = class DefaultLayoutComponent extends LayoutContro
                   }
                 </Switch>
 
-                <Button onClick={this.toggle.bind(this,'SideNavBar')}>SideNavBar</Button>
-                <Button onClick={this.toggle.bind(this,'OffCanvas')}>Offcanvas</Button>
-
               </CardBlock>
             </Col>
 

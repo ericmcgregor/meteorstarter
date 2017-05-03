@@ -16,7 +16,7 @@ const SidebarNavRoute = [
     component: SidebarLayout,
     routes: [
         { path: "/sidebarnav/basic",
-          title:'Basic',
+          title:'Basic Table',
           exact:true,
           component:TablesBasicPage,
           routes:[
@@ -34,12 +34,19 @@ const SidebarNavRoute = [
           ]
         },
         { path: '/sidebarnav/pivot',
-          title:'Pivot',
+          title:'Pivot Table',
           component:PivotTableComponent
         },
-        { path: '/sidebarnav/test',
-          title:'Test',
-          component:()=>(<div>test</div>)
+        { path: '/sidebarnav/layout-actions',
+          title:'Layout Actions',
+          component:(props)=>(
+            <div className="card-block">
+              <h4>Passing down layout actions</h4>
+              <p>you can control things at the layout level.</p>
+                <button className="btn btn-secondary" onClick={props.layout.toggle.bind(this,'SideNavBar')}>SideNavBar</button>
+                <button className="btn btn-secondary" onClick={props.layout.toggle.bind(this,'OffCanvas')}>Offcanvas</button>
+            </div>
+          )
         },
         { path: '/sidebarnav/:id',
           component:()=>(<div>Example error page.  This route does not exist</div>)
@@ -137,8 +144,23 @@ const routes = [
   ...DropdownNavRoute,
   ...DefaultNavRoute,
   { path: '/',
-    exact:true,
-    component:SidebarLayout
+    component:SidebarLayout,
+    routes:[
+      {
+        path:'/',
+        exact:true,
+        component:() => (<div>
+          <h4>Setup Instructions:</h4>
+          <ol>
+            <li>create a "/imports/projects" directory</li>
+            <li>copy "/imports/startup/routes.js" to "/imports/projects/routes.js"</li>
+            <li>create "/imports/startup/project.scss"</li>
+            <li>comment out line 14 in "/imports/startup/App.js" to turn off this route file</li>
+            <li>uncomment line 17 in "/imports/startup/App.js" to point to your route file</li>
+          </ol>
+        </div>)
+      }
+    ]
   },
 ]
 

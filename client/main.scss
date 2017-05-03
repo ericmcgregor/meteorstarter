@@ -3,7 +3,7 @@
 
 @import '{}/node_modules/gridlex/src/gridlex-vars.scss';
 @import '{}/node_modules/gridlex/src/gridlex.scss';
-
+@import '{}/imports/projects/project.scss'
 
 div[class^="container"] {
   padding:0;
@@ -38,11 +38,10 @@ body,
     overflow-y:auto;
     position:relative;
     height:100%;
-    >div.row, div {
+    >div.row, > div {
       height:100%;
     }
   }
-
 }
 #container-content {
   overflow-y:auto;
@@ -51,6 +50,24 @@ body,
   display:flex;
   flex-direction:column;
 }
+
+
+.main-full-width {
+  overflow-y:hidden;
+  >div.row {
+    height:100%;
+    overflow-y: auto;
+  }
+  &.bg-light {
+    > div.row {
+      background:#fafafa;
+    }
+  }
+}
+
+
+
+
 
 
 
@@ -91,7 +108,7 @@ nav.navbar.secondary {
   border-right:1px solid $list-group-border-color;
   position:relative;
   overflow-y:auto;
-  background:#f1f1f1;
+  background:#fafafa;
   font-size:0.9rem;
   padding-bottom:0;
 
@@ -154,14 +171,18 @@ nav.navbar.secondary {
 }
 
 .SidePanel {
-  background:#fff;
-  border:0;
-  padding:20px 0;
-  >div {
-    border:1px solid $list-group-border-color;
-    margin:0 20px;
-    overflow-y:auto;
+  &.floating {
+    background:transparent;
+    border:0;
+    padding:20px 0;
+    >div {
+      border:1px solid $list-group-border-color;
+      margin:0 0px 0 20px;
+      overflow-y:auto;
+      background:#fff;
+    }
   }
+
   &.col-4 {
     width:380px;
     min-width:380px;
