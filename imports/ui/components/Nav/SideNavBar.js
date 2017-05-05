@@ -37,7 +37,7 @@ const SideNavBar = class SideNavBar extends React.Component {
         }
     }
     return (
-      <Col xs={2} className={"Panel SideNav"} style={styles}>
+      <Col xs={this.props.size} className={"Panel SideNav"} style={styles}>
         {(()=>{
           if(this.state.SideNavBar) return (
             <div>

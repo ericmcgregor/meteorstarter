@@ -14,6 +14,13 @@ import DefaultFormComponent from '/imports/ui/defaultComponents/DefaultFormCompo
 
 
 const SidebarLayoutComponent = class SidebarLayoutComponent extends LayoutController {
+  constructor(props){
+    super(props)
+    this.state={
+      OffCanvas:this.props.OffCanvas,
+      SideNavBar:this.props.SideNavBar,
+    }
+  }
   render() {
     const props = this.props;
     console.log(props)
@@ -25,7 +32,7 @@ const SidebarLayoutComponent = class SidebarLayoutComponent extends LayoutContro
 
           <Row noGutters={true}>
 
-            {this.state.SideNavBar ? <SideNavBar size={1} toggle={this.toggle} open={this.state.SideNavBar} {...props} appRoutes={props.appRoutes}/> : null}
+            <SideNavBar size={3} toggle={this.toggle} open={this.state.SideNavBar} {...props} appRoutes={props.appRoutes}/>
 
             <Col id="container-content">
 
@@ -50,14 +57,16 @@ const SidebarLayoutComponent = class SidebarLayoutComponent extends LayoutContro
 
             </Col>
 
-            <OffCanvas {...props}
-              isOpen={this.state.OffCanvas}
-              close={this.toggle.bind(this,'OffCanvas')}>
-              <CardBlock><DefaultFormComponent {...props} /></CardBlock>
-            </OffCanvas>
-
           </Row>
+
         </main>
+
+        <OffCanvas {...props}
+          isOpen={this.state.OffCanvas}
+          close={this.toggle.bind(this,'OffCanvas')}>
+          <CardBlock><DefaultFormComponent {...props} /></CardBlock>
+        </OffCanvas>
+
       </Container>
     )
   }
