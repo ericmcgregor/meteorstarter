@@ -1,6 +1,6 @@
 import {Meteor} from 'meteor/meteor';
 import Data from '/imports/api/Data'
-import '/imports/projects/Methods'
+import '/imports/projects/server'
 
 Meteor.startup(() => {
 
