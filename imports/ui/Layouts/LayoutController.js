@@ -3,11 +3,13 @@ import React from 'react';
 const LayoutController = class LayoutController extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      SideNavBar:this.props.SideNavBar,
-      OffCanvas:this.props.OffCanvas,
-    }
+    // this.state = {
+    //   SideNavBar:this.props.SideNavBar,
+    //   OffCanvas:this.props.OffCanvas,
+    // }
     this.toggle = this.toggle.bind(this)
+    this.setValue = this.setValue.bind(this)
+    this.layoutActions = this.layoutActions.bind(this)
   }
   toggle(key) {
     if(!this.state[key]) {
@@ -18,6 +20,17 @@ const LayoutController = class LayoutController extends React.Component {
     this.setState({
       [key]: !this.state[key]
     });
+  }
+  setValue(key, value) {
+    this.setState({
+      [key]: value
+    });
+  }
+  layoutActions(){
+    return {
+      toggle:this.toggle,
+      setValue:this.setValue
+    }
   }
   flattenRoutes(routes) {
     let _routes = [];

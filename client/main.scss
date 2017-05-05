@@ -17,6 +17,12 @@ div[class^="container"] {
   }
 }
 
+div.row.no-gutters {
+  > [class^="col"] {
+    padding-bottom:0;
+  }
+}
+
 html,
 body,
 #react-root,

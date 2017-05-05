@@ -42,8 +42,6 @@ const App = () =>{
 
 mount(App);
 
-
-
 // const App = () =>{
 //   return (
 //     <div id="container-window">
