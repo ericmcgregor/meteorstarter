@@ -138,6 +138,7 @@ nav.navbar.secondary {
     display:flex;
     flex-direction:column;
     z-index:999;
+    min-width:240px!important;
     >header {}
     >main {
       height:100%;

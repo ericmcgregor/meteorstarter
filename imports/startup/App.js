@@ -18,8 +18,9 @@ import appRoutes from '/imports/projects/routes'
 
 const RouteWithSubRoutes = (route) => {
   return (
-    <Route path={route.path} render={props => {
-      return (<route.component route={route} appRoutes={appRoutes}/>)
+    <Route path={route.path} render={match => {
+      // console.log('routewsubroute: ', match)
+      return (<route.component route={route} appRoutes={appRoutes} {...match}/>)
     }} />
   )
 }
@@ -28,13 +29,16 @@ const App = () =>{
   return (
     <Router>
       <div id="container-window">
+        <Switch>
         {appRoutes.map((route, i) => (
-          <Route key={i} path={route.path} render={(props)=>{
+          <Route key={i} path={route.path} render={(match)=>{
+              // console.log('app: ', match)
               return (
-                <RouteWithSubRoutes {...props} {...route} route={route} appRoutes={appRoutes} />
+                <RouteWithSubRoutes {...match} {...route} appRoutes={appRoutes} />
             )
             }}/>
         ))}
+        </Switch>
       </div>
     </Router>
   )

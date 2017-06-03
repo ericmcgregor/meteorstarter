@@ -34,19 +34,29 @@ const DefaultLayoutComponent = class DefaultLayoutComponent extends LayoutContro
           }
         })()}
 
-
         <main>
           <Switch>
             {
               this.flattenRoutes(props.route.routes).map((route, i)=>(
-                <Route key={i} path={route.path} exact={route.exact} render={match=>(
+                <Route key={i} path={route.path} exact={route.exact} render={match=>{
+                  // console.log('flattenroute: ', match)
+                  return (
                     <route.component
                       {...props}
                       layout={{
-                        toggle:this.toggle
+                        state:this.state,
+                        actions:this.layoutActions()
                       }}
+                      rootProps={{
+                        route,
+                        match,
+                        ...props
+                      }}
+                      match={match}
+                      routes={route.routes}
                     />
-                  )}>
+                  )
+                  }}>
                 </Route>
               ))
             }
@@ -67,8 +77,9 @@ const DefaultLayoutComponent = class DefaultLayoutComponent extends LayoutContro
   }
 }
 
+export default DefaultLayoutComponent;
 
-export default DefaultLayout = createContainer (DefaultPageConstructor, DefaultLayoutComponent)
+// export default DefaultLayout = createContainer (DefaultPageConstructor, DefaultLayoutComponent)
 
 
 // <Container id="container-body" fluid={true}>
