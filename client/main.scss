@@ -1,0 +1,41 @@
+@import '{}/node_modules/bootstrap/scss/bootstrap';
+
+html,
+body {
+  height:100%;
+  overflow:hidden;
+}
+
+#App {
+  height:100%;
+  overflow:hidden;
+}
+div[data-reactroot],
+.layout-container {
+  flex-direction:column;
+  display:flex;
+  height:100%;
+}
+
+
+.row {
+  height:100%;
+}
+
+.full-height {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-height: 100%;
+  overflow:hidden;
+}
+
+.scroll-wrapper {
+  flex-direction:column;
+  display:flex;
+  height:100%;
+  overflow:auto;
+}
+
+header, section, main, footer {
+  // border:1px solid black;
+}
