@@ -8,7 +8,6 @@ import {
 
 import FullPage from '/imports/ui/Pages/FullPage'
 import Sidebar from '/imports/ui/Pages/Sidebar'
-import API from '/imports/redux/container'
 import Home from '/imports/ui/Pages/Home'
 
 const App = class App extends React.Component {
@@ -18,7 +17,6 @@ const App = class App extends React.Component {
         <Switch>
           <Route path="/fullpage" component={FullPage} />
           <Route path="/sidebar" component={Sidebar} />
-          <Route path="/api" component={API} />
           <Route path="/" component={Home} />
         </Switch>
       </Router>
