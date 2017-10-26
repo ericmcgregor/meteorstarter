@@ -6,7 +6,7 @@ body {
   overflow:hidden;
 }
 
-#App {
+#react-root {
   height:100%;
   overflow:hidden;
 }
@@ -26,7 +26,15 @@ div[data-reactroot],
   flex-basis: 0;
   flex-grow: 1;
   max-height: 100%;
+  height:100%;
   overflow:hidden;
+  display:flex;
+  flex-direction: column;
+  > div {
+    height:100%;
+    overflow:hidden;
+    flex:1;
+  }
 }
 
 .scroll-wrapper {
@@ -34,6 +42,9 @@ div[data-reactroot],
   display:flex;
   height:100%;
   overflow:auto;
+  >div.scroll {
+    overflow-y:auto
+  }
 }
 
 header, section, main, footer {

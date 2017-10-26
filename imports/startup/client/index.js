@@ -1,9 +1,30 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
+import {Provider} from "react-redux"
+import store from "/imports/redux/store"
+import App from "../../ui/layouts/App/App";
 
-import App from './App';
+import '/node_modules/react-table/react-table.css';
+import { ReactTableDefaults } from 'react-table'
+Object.assign(ReactTableDefaults, {
+  getTheadTrProps:()=>{
+    return {
+      style:{
+        textAlign:"left",
+      }
+    }
+  },
+  getTrProps:()=>{
+    return {
+      style:{
+        textAlign:"left",
+        alignItems:"center"
+      }
+    }
+  }
+});
 
 Meteor.startup(() => {
-  render(<App />, document.getElementById('App'));
+  render(<Provider store={store}><App /></Provider>, document.getElementById('react-root'));
 });
