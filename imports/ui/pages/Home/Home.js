@@ -6,7 +6,7 @@ import {connect} from "react-redux"
 import * as DefaultActions from '/imports/redux/default/defaultActions'
 import './Home.scss'
 
-const Home =
+export const Home =
   @connect((store) => {
     return {
       'defaults': store.defaults
