@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 import GlobalNav from "../../components/GlobalNav/GlobalNav";
 import {Home} from "../../pages/Home/Home";
+import ModalComponent from "../../components/ModalComponent/ModalComponent";
 
 
 
@@ -24,6 +25,7 @@ export default App = class App extends React.Component {
               <Route path="/" component={Home} />
             </Switch>
         </main>
+          <ModalComponent />
         </div>
       </Router>
 

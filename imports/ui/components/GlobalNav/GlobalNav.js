@@ -4,8 +4,7 @@ import {Nav, Navbar, NavLink, NavbarBrand, NavbarToggler, NavItem} from "reactst
 import {NavLink as RouterNavLink} from "react-router-dom";
 
 const GlobalNav = props => (
-  <Navbar color="faded" light toggleable>
-    <NavbarToggler right onClick={this.toggle} />
+  <Navbar color="dark" dark>
     <NavbarBrand href="/">Title</NavbarBrand>
     <Nav className="ml-auto" navbar hidden>
       <NavItem>

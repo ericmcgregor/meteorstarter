@@ -1,7 +1,10 @@
-export function defaultMethod(_id) {
+
+export function getDefaultList(_id) {
   return function (dispatch) {
-    dispatch({type: "DEFAULT_METHOD"});
-    Meteor.call('links.remove', _id);
+    dispatch({type: "GET_DEFAULT_LIST"});
+    Meteor.call('links.get', (err, response)=>{
+      dispatch({type:'SUCCESS_GET_DEFAULT_LIST', payload:response})
+    });
   }
 }
 export function defaultAction() {

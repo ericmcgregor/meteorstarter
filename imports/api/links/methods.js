@@ -20,4 +20,8 @@ Meteor.methods({
     
     return Links.remove(_id);
   },
+  'links.get'(){
+    console.log('etst')
+    return Links.find().fetch();
+  }
 });
