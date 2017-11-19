@@ -15,16 +15,14 @@ export default App = class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
-        <header>
-          <GlobalNav />
-        </header>
-        
-        <main className="full-height">
-            <Switch>
-              <Route path="/" component={Home} />
-            </Switch>
-        </main>
+        <div id="app-layout-container">
+          <header>
+            <GlobalNav />
+          </header>
+          
+          <Switch>
+            <Route path="/" component={Home} />
+          </Switch>
           <ModalComponent />
         </div>
       </Router>

@@ -9,6 +9,7 @@ import MeteorCollectionListContainer from "../../components/CollectionList/Meteo
 import ReduxCollectionList from "../../components/CollectionList/ReduxCollectionList";
 
 import './Home.scss'
+import ReactTableComponent from "../../components/ReactTableComponent/ReactTableComponent";
 
 export const Home =
   @connect((store) => {
@@ -24,25 +25,32 @@ export const Home =
     }
     render() {
       const props = this.props
-      if(props.defaults.fetching || !props.defaults.ready) return <div>fetching...</div>
+      // if(props.defaults.fetching || !props.defaults.ready) return <div>fetching...</div>
       return (
-        <div>
-          <Container id={"Home"} className={"full-height"} fluid>
+          <Container id={"Home"} className={""} fluid>
             <Row>
               <Col sm={2}>
+                <div>
                 Sidebar Widget
+                </div>
               </Col>
               <Col sm={10}>
                 <h3>A Default List of things</h3>
+                <ReactTableComponent />
                 <ReduxCollectionList list={this.props.defaults.list}/>
                 <TriggerModalButton />
               </Col>
             </Row>
           </Container>
-        </div>
       )
     }
   }
+  
 
 Home.defaultProps = {};
 Home.propTypes = {};
+//
+// "react": "^15.5.4",
+//   "react-dom": "^15.5.4",
+//   "react-redux": "^5.0.5",
+//   "react-router-dom": "^4.1.1",

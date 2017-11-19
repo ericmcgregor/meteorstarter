@@ -3,49 +3,69 @@
 html,
 body {
   height:100%;
-  overflow:hidden;
+  overflow:auto;
 }
 
 #react-root {
   height:100%;
-  overflow:hidden;
-}
-div[data-reactroot],
-.layout-container {
-  flex-direction:column;
-  display:flex;
-  height:100%;
-}
-
-
-.row {
-  height:100%;
-}
-
-.full-height {
-  flex-basis: 0;
-  flex-grow: 1;
-  max-height: 100%;
-  height:100%;
-  overflow:hidden;
+  overflow:auto;
   display:flex;
   flex-direction: column;
-  > div {
-    height:100%;
-    overflow:hidden;
-    flex:1;
-  }
+  position:relative;
 }
 
-.scroll-wrapper {
-  flex-direction:column;
-  display:flex;
+#app-layout-container {
   height:100%;
   overflow:auto;
-  >div.scroll {
-    overflow-y:auto
-  }
+  position:relative;
+  display:flex;
+  flex-direction:column;
 }
+
+.scroll {
+  overflow:auto!important;
+}
+.fixed-container {
+  flex:1;
+  overflow:hidden;
+  //> div {
+  //  height:100%;
+  //  overflow:hidden;
+  //  >div {
+  //    border:2px solid black;
+  //    overflow:auto
+  //  }
+  //}
+}
+
+.row {
+  //height:100%;
+}
+
+//.full-height {
+//  flex-basis: 0;
+//  flex-grow: 1;
+//  max-height: 100%;
+//  height:100%;
+//  overflow:hidden;
+//  display:flex;
+//  flex-direction: column;
+//  > div {
+//    height:100%;
+//    overflow:hidden;
+//    flex:1;
+//  }
+//}
+//
+//.scroll-wrapper {
+//  flex-direction:column;
+//  display:flex;
+//  height:100%;
+//  overflow:auto;
+//  >div.scroll {
+//    overflow-y:auto
+//  }
+//}
 
 header, section, main, footer {
   // border:1px solid black;
