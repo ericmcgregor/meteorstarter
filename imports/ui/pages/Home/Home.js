@@ -5,7 +5,6 @@ import store from "/imports/redux/store"
 import {connect} from "react-redux"
 import * as DefaultActions from '/imports/redux/default/defaultActions'
 import {TriggerModalButton} from "../../components/ModalComponent/TriggerModalButton";
-import MeteorCollectionListContainer from "../../components/CollectionList/MeteorCollectionList";
 import ReduxCollectionList from "../../components/CollectionList/ReduxCollectionList";
 
 import './Home.scss'
