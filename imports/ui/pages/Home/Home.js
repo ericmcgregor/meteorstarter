@@ -6,9 +6,11 @@ import {connect} from "react-redux"
 import * as DefaultActions from '/imports/redux/default/defaultActions'
 import {TriggerModalButton} from "../../components/ModalComponent/TriggerModalButton";
 import ReduxCollectionList from "../../components/CollectionList/ReduxCollectionList";
+import MeteorCollectionList from "../../components/CollectionList/MeteorCollectionList";
 
 import './Home.scss'
 import ReactTableComponent from "../../components/ReactTableComponent/ReactTableComponent";
+import ReactFormComponent from "../../components/ReactForm/ReactFormComponent";
 
 export const Home =
   @connect((store) => {
@@ -34,9 +36,24 @@ export const Home =
                 </div>
               </Col>
               <Col sm={10}>
+                <div>
+                  <h3>A Default List of things</h3>
+                  <ReactFormComponent />
+                </div>
+                
                 <h3>A Default List of things</h3>
+                <Row>
+                  <Col>
+                    <MeteorCollectionList list={this.props.defaults.list}/>
+                  </Col>
+                  <Col>
+                    <ReduxCollectionList list={this.props.defaults.list}/>
+                  </Col>
+                </Row>
                 <ReactTableComponent />
-                <ReduxCollectionList list={this.props.defaults.list}/>
+  
+                <h3>Modal</h3>
+  
                 <TriggerModalButton />
               </Col>
             </Row>
