@@ -1,7 +1,29 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Form, Text, TextArea, Radio, RadioGroup, Select, Checkbox } from 'react-form';
+import { StyledText, Form, Text, TextArea, Radio, RadioGroup, Select, Checkbox } from 'react-form';
 import {Button, FormGroup, Input, Label} from "reactstrap";
+
+//https://react-form.js.org
+
+const errorValidator = (values) => {
+  return {
+    firstName: !values.firstName ? "Input must contain something, stupid" : null
+  };
+};
+
+const warningValidator = (values) => {
+  return {
+    firstName: !values.firstName ||
+    values.firstName.length < 2 ? "Input not long enough dummy" : null
+  };
+};
+
+const successValidator = (values) => {
+  return {
+    firstName: values.firstName &&
+    values.firstName.length > 2 ? "Thanks for entering a name" : null
+  };
+};
 
 const statusOptions = [
   {
@@ -27,14 +49,18 @@ class ReactFormComponent extends Component {
     return (
       <Form
       onSubmit={submittedValues => this.submitValues( { submittedValues } )}
-      formDidUpdate={submittedValues => this.submitValues( { submittedValues } )}>
+      validateWarning={warningValidator}
+      validateSuccess={successValidator}
+      validateError={errorValidator}
+      dontValidateOnMount={true}
+      >
         { formApi => {
           return (
             <form onSubmit={formApi.submitForm} id="form2">
               
               <div className="form-group">
                 <label htmlFor="firstName">First name</label>
-                <Text field="firstName" id="firstName" className={"form-control"} />
+                <StyledText field="firstName" id="firstName" className={"form-control"} />
               </div>
               
               <div className="form-group">
