@@ -11,6 +11,8 @@ import MeteorCollectionList from "../../components/CollectionList/MeteorCollecti
 import './Home.scss'
 import ReactTableComponent from "../../components/ReactTableComponent/ReactTableComponent";
 import ReactFormComponent from "../../components/ReactForm/ReactFormComponent";
+import MeteorReduxCollectionListContainer from "../../components/CollectionList/MeteorReduxCollectionList";
+import {Link} from "react-router-dom";
 
 export const Home =
   @connect((store) => {
@@ -19,11 +21,6 @@ export const Home =
     };
   })
   class Home extends React.Component {
-    componentWillMount(){
-      if(!this.props.defaults.ready) {
-        store.dispatch(DefaultActions.getDefaultList())
-      }
-    }
     render() {
       const props = this.props
       // if(props.defaults.fetching || !props.defaults.ready) return <div>fetching...</div>
@@ -41,13 +38,15 @@ export const Home =
                   <ReactFormComponent />
                 </div>
                 
+                <Link to={'/test'}>go to ttest</Link>
                 <h3>A Default List of things</h3>
                 <Row>
                   <Col>
                     <MeteorCollectionList list={this.props.defaults.list}/>
                   </Col>
                   <Col>
-                    <ReduxCollectionList list={this.props.defaults.list}/>
+                    {/*<ReduxCollectionList list={this.props.defaults.list}/>*/}
+                    <MeteorReduxCollectionListContainer />
                   </Col>
                 </Row>
                 <ReactTableComponent />

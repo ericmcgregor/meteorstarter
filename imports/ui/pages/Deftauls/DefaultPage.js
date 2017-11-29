@@ -4,8 +4,8 @@ import {Container, Row, Col} from 'reactstrap';
 import store from "/imports/redux/store"
 import {connect} from "react-redux"
 import * as DefaultActions from '/imports/redux/default/defaultActions'
+import {Link} from "react-router-dom";
 
-import './Home.scss'
 
 export const DefaultPage =
   @connect((store) => {
@@ -27,6 +27,8 @@ class DefaultPage extends React.Component {
         <Row>
           <Col sm={12}>
             <h3>MainColumn</h3>
+            <Link to={'/'}>go to ttest</Link>
+
           </Col>
         </Row>
       </Container>
