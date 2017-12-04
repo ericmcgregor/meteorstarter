@@ -8,7 +8,9 @@ import {Links} from '/imports/api/links/links'
 import { withTracker } from 'meteor/react-meteor-data';
 
 
-
+const removeLink = ({_id})=>{
+    Meteor.call('links.remove', {_id})
+}
 class CollectionList extends Component {
   render() {
     return (
@@ -18,7 +20,7 @@ class CollectionList extends Component {
           {this.props.tasks.map((item, i)=>{
             return (
               <tr key={i}>
-                <td>{item.title}</td>
+                <td onClick={removeLink.bind(this, {_id:item._id})}>{item.title}</td>
               </tr>
             )
           })}
@@ -48,6 +50,7 @@ const MeteorCollectionListContainer = compose(
     };
   })
 )(CollectionList);
+
 
 
 export default MeteorCollectionListContainer;

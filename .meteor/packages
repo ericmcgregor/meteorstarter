@@ -24,3 +24,5 @@ react-meteor-data
 matb33:collection-hooks
 #aldeed:collection2-core
 #bundle-visualizer
+cultofcoders:grapher
+cultofcoders:grapher-react

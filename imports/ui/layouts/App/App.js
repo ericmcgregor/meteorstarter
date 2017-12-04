@@ -9,9 +9,6 @@ import {Home} from "../../pages/Home/Home";
 import ModalComponent from "../../components/ModalComponent/ModalComponent";
 import {DefaultPage} from "../../pages/Deftauls/DefaultPage";
 
-
-
-
 export default App = class App extends React.Component {
   render() {
     return (

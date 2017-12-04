@@ -2,3 +2,6 @@
 
 import './fixtures.js';
 import './register-api.js';
+
+import '/imports/db/Links'
+import '/imports/db/Exposures'

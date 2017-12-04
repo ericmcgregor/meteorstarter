@@ -3,7 +3,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { Links } from './links.js';
-
+import './db/links.queries'
 Meteor.methods({
   'links.insert'({title, url}) {
     check(url, String);
@@ -15,7 +15,7 @@ Meteor.methods({
       createdAt: new Date(),
     });
   },
-  'links.remove'(_id) {
+  'links.remove'({_id}) {
     check(_id, String);
     
     return Links.remove(_id);

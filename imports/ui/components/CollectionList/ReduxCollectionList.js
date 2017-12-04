@@ -18,7 +18,7 @@ const ReduxCollectionListContainer =
         <div>
           <Table>
             <tbody>
-            {this.props.list.map((item, i)=>{
+            {this.props.defaults.links.map((item, i)=>{
               return (
                 <tr key={i}>
                   <td>{item.title}</td>
