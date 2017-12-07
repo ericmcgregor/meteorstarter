@@ -1,10 +1,10 @@
 // All links-related publications
 
 import { Meteor } from 'meteor/meteor';
-import { Links } from '../links.js';
+import { Authors } from '../authors.js';
 
 
-Meteor.publish('links.all', function (query={}, search) {
+Meteor.publish('authors.all', function (query={}, search) {
   if (search) {
       let regex = new RegExp(search, 'i');
       query = {
@@ -14,5 +14,5 @@ Meteor.publish('links.all', function (query={}, search) {
           }, ]
       }
     }
-  return Links.find(query, {});
+  return Authors.find(query, {});
 });

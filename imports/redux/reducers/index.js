@@ -1,14 +1,16 @@
 import { combineReducers } from "redux"
 
-import defaults from "../default/defaultReducers"
 import modal from "../modal/modalReducers"
 import posts from '../posts/postReducers'
 
+import authors from '../authors/authorsReducers'
+import links from '../links/linksReducers'
 // IMPORT REDUCER
 
 export default combineReducers({
-    defaults,
     modal,
     posts,
-    // ADD REDUCER
+    authors,
+links,
+// ADD REDUCER
 })

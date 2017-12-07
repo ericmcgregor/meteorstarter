@@ -10,7 +10,7 @@ const initialState = {
   fetching:false,
   ready:false,
   postsSubscriptionStopped:false,
-  posts:[]
+  posts:[],
 }
 
 export default function reducer(state=initialState, action) {

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {Container, Row, Col} from 'reactstrap';
 import store from "/imports/redux/store"
 import {connect} from "react-redux"
-import * as DefaultActions from '/imports/redux/default/defaultActions'
 
 import ReactTableComponent from "../../components/ReactTableComponent/ReactTableComponent";
 import ReduxCollectionList from "../../components/CollectionList/ReduxCollectionList";

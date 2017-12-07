@@ -1,10 +1,25 @@
 import {Links} from "../links";
-import {Posts} from "../../posts/posts";
+import Meteor from 'meteor/meteor'
 
 Links.addLinks({
-    'posts': {
-        collection: Posts,
-        inversedBy: 'link',
-        index: true,
+    'postsData':{
+      collection:"posts",
+      inversedBy:"linksData",
+      denormalize: {
+          body: {
+            _id:1
+          },
+          field: 'postsCache',
+      }
+    },
+    'authorsData':{
+      collection:"authors",
+      inversedBy:"linksData",
+      denormalize: {
+        body: {
+          _id:1
+        },
+        field: 'authorsCache',
+      }
     }
 })

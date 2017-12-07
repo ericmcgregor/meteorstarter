@@ -2,27 +2,27 @@
 
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import { Links } from './links.js';
-import { linksAll } from './db/links.queries'
+import { Authors } from './authors.js';
+import { authorsAll } from './db/authors.queries'
 
 Meteor.methods({
-  'links.insert'({title}) {
+  'authors.insert'({title}) {
     check(title, String);
 
-    let _id = Links.insert({
+    let _id = Authors.insert({
       title:'testing link',
       createdAt: new Date(),
       description:"test description"
     });
 
   },
-  'links.remove'({_id}) {
+  'authors.remove'({_id}) {
     check(_id, String);
 
-    return Links.remove(_id);
+    return Authors.remove(_id);
   },
-  linksQueryGetAll() {
-      const query = linksAll.clone()
+  authorsQueryGetAll() {
+      const query = authorsAll.clone()
       return query.fetch();
   }
 });

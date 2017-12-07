@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {connect} from "react-redux"
 import {Table} from "reactstrap";
 import {compose} from "redux";
-import {withQuery} from 'meteor/cultofcoders:grapher-react';
 import {createQuery} from 'meteor/cultofcoders:grapher';
 import {stopSubscription} from "meteor-redux-middlewares";
 import {loadPosts, POSTS_SUB} from "../../../redux/posts/postActions";

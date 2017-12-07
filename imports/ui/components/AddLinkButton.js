@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import * as DefaultActions from '/imports/redux/default/defaultActions'
 import store from "/imports/redux/store"
 import {connect} from "react-redux"
 import {Button} from "reactstrap/lib/index";
@@ -13,7 +12,7 @@ import {Button} from "reactstrap/lib/index";
 })
 class AddLinkButton extends Component {
   insertLink(){
-    store.dispatch(DefaultActions.insert({title:'new link', url:'url'}))
+    // store.dispatch(DefaultActions.insert({title:'new link', url:'url'}))
   }
   render() {
     return (

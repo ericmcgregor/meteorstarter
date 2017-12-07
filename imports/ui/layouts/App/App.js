@@ -8,6 +8,7 @@ import GlobalNav from "../../components/GlobalNav/GlobalNav";
 import {Home} from "../../pages/Home/Home";
 import ModalComponent from "../../components/ModalComponent/ModalComponent";
 import {DefaultPage} from "../../pages/Deftauls/DefaultPage";
+import CollectionPageContainer from "../../pages/Collection/CollectionPage";
 
 export default App = class App extends React.Component {
   render() {
@@ -19,7 +20,7 @@ export default App = class App extends React.Component {
           </header>
           
           <Switch>
-            <Route path={"/test"} component={DefaultPage} />
+            <Route path={"/:collectionId"} component={CollectionPageContainer} />
             <Route path="/" component={Home} />
           </Switch>
           <ModalComponent />

@@ -6,7 +6,6 @@ import {Table} from "reactstrap";
 import {compose} from "redux";
 import {Links} from '/imports/api/links/links'
 import { withTracker } from 'meteor/react-meteor-data';
-import {LINKS_SUB, loadLinks} from "../../../redux/default/defaultActions";
 import { stopSubscription } from 'meteor-redux-middlewares';
 
 
