@@ -4,8 +4,8 @@ import {Container, Row, Col} from 'reactstrap';
 import store from "/imports/redux/store"
 import {connect} from "react-redux"
 
-import ReactTableComponent from "../../components/ReactTableComponent/ReactTableComponent";
-import ReduxCollectionList from "../../components/CollectionList/ReduxCollectionList";
+import ReactTableComponent from "../../components/examples/ReactTableComponent/ReactTableComponent";
+import ReduxCollectionList from "../../components/examples/CollectionList/ReduxCollectionList";
 import {TriggerModalButton} from "../../components/ModalComponent/TriggerModalButton";
 
 export const ScrollableContentPage =

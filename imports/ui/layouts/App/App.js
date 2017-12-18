@@ -4,7 +4,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import GlobalNav from "../../components/GlobalNav/GlobalNav";
+import GlobalNav from "../../components/examples/GlobalNav/GlobalNav";
 import {Home} from "../../pages/Home/Home";
 import ModalComponent from "../../components/ModalComponent/ModalComponent";
 

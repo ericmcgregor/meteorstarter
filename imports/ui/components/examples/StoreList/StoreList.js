@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import store from "../../../redux/store";
+import store from "../../../../redux/store";
 import {Table} from "reactstrap";
 import {Link} from "react-router-dom";
 
